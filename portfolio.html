@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张小明 | AI产品经理</title>
+    <meta name="description" content="7年产品经理经验，从用户调研到产品落地，深度思考，务实落地">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563EB;
+            --primary-dark: #1D4ED8;
+            --gradient: linear-gradient(135deg, #2563EB, #7C3AED);
+            --bg: #FFFFFF;
+            --bg-secondary: #F8FAFC;
+            --text: #0F172A;
+            --text-secondary: #64748B;
+            --border: #E2E8F0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* 导航 */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: var(--bg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #EFF6FF;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 20px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 22px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 16px;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 36px;
+        }
+
+        .hero-tag {
+            padding: 8px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .hero-desc {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 32px;
+            padding-left: 16px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: white;
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* 关于我 */
+        .about {
+            padding: 80px 60px;
+            background: var(--bg-secondary);
+        }
+
+        .about-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 60px;
+        }
+
+        .about-left h2 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .about-left h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .about-left p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* 时间轴 - 新风格 */
+        .timeline {
+            position: relative;
+            padding-left: 32px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: #E2E8F0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 36px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #E2E8F0;
+        }
+
+        .timeline-period {
+            font-size: 13px;
+            color: #94A3B8;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .timeline-company {
+            font-size: 17px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 2px;
+        }
+
+        .timeline-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            font-size: 14px;
+            color: #64748B;
+            line-height: 1.7;
+        }
+
+        /* 洞察 */
+        .insights {
+            padding: 80px 60px;
+            background: var(--bg-secondary);
+        }
+
+        .insights-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .insight-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            transition: all 0.2s;
+        }
+
+        .insight-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .insight-tag {
+            font-size: 12px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .insight-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .insight-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* 项目 */
+        .projects {
+            padding: 80px 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 48px;
+        }
+
+        .section-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            font-size: 17px;
+            color: var(--text-secondary);
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(37, 99, 235, 0.08);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .project-title {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .project-stage {
+            padding: 4px 12px;
+            background: var(--gradient);
+            color: white;
+            font-size: 12px;
+            font-weight: 500;
+            border-radius: 20px;
+        }
+
+        .project-role {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .project-desc {
+            font-size: 15px;
+            color: var(--text);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .project-thoughts {
+            padding: 16px;
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .project-thoughts-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .project-thoughts p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .project-metrics {
+            display: flex;
+            gap: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .metric {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metric-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .metric-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .tag {
+            padding: 4px 12px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* 页脚 */
+        footer {
+            padding: 60px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-email {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .footer-email a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 24px;
+            }
+
+            .timeline::before {
+                left: 4px;
+            }
+
+            .timeline-item::before {
+                left: -24px;
+                width: 10px;
+                height: 10px;
+            }
+
+            .insights-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 24px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .projects, .skills, .about {
+                padding: 60px 24px;
+            }
+
+            .project-metrics {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            /* 滑出面板移动端 */
+            .slide-panel {
+                width: 100%;
+                right: -100%;
+            }
+        }
+
+        /* 右侧滑出面板 */
+        .slide-panel-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 200;
+        }
+
+        .slide-panel-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .slide-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 80%;
+            max-width: 1100px;
+            height: 100vh;
+            background: white;
+            box-shadow: -8px 0 32px rgba(0, 0, 0, 0.15);
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 201;
+            overflow-y: auto;
+        }
+
+        .slide-panel.active {
+            transform: translateX(0);
+        }
+
+        .slide-panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 28px;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 10;
+        }
+
+
+        .slide-panel-content {
+            padding: 28px;
+        }
+
+        .slide-panel-section {
+            margin-bottom: 32px;
+        }
+
+        .slide-panel-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .slide-panel-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .slide-panel-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .slide-panel-subtitle {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .slide-panel-text {
+            font-size: 14px;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .slide-panel-text p {
+            margin-bottom: 12px;
+        }
+
+        .slide-panel-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .slide-panel-image {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .slide-panel-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .slide-panel-list li {
+            position: relative;
+            padding-left: 16px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .slide-panel-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        .slide-panel-metrics {
+            display: flex;
+            gap: 32px;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+        }
+
+        .slide-panel-metric-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .slide-panel-metric-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .project-card {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航 -->
+    <nav>
+        <div class="logo">TANG<span>.</span></div>
+        <div class="nav-links">
+            <a href="#about">关于</a>
+            <a href="#insights">洞察</a>
+            <a href="#projects">项目</a>
+            <a href="#contact">联系</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">AI产品经理 | 5年+经验</div>
+        <h1>我是 <span>张小明</span></h1>
+        <p class="hero-subtitle">从中台到B端，再到C端AI，见过完整闭环</p>
+        <div class="hero-tags">
+            <span class="hero-tag">需求洞察</span>
+            <span class="hero-tag">系统设计</span>
+            <span class="hero-tag">数据驱动</span>
+            <span class="hero-tag">跨部门协调</span>
+        </div>
+        <p class="hero-desc">
+            5年+产品经验，经历过完整的转型路径：电信C端运营 → 金山账号中台 → WPS 365 B端企业产品 → WPS AI C端产品。<br><br>
+            25年落地：AI对外合作日活1.4w、推荐策略PV提升45%、侧边栏联动方案成为26年核心方向。<br><br>
+            现在专注AI C端产品，相信AI是未来，擅长在有限资源下找到最优解。
+        </p>
+        <div class="hero-buttons">
+            <a href="#projects" class="btn-primary">
+                查看项目 →
+            </a>
+            <a href="#contact" class="btn-secondary">
+                联系我
+            </a>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-left">
+                <h2>About Me</h2>
+                <h3>见过完整闭环，专注AI C端</h3>
+                <p>
+                    5年+产品经验，走过完整的转型路径：<br><br>
+                    <strong>电信</strong>：从0搭建用户标签系统，转化率↑40%，客诉↓40%<br>
+                    <strong>金山账号中台</strong>：主导26个方案，完成全产品线账号隔离改造<br>
+                    <strong>金山B端</strong>：从0到1落地数据安全模块，通威/新东方标杆客户<br>
+                    <strong>金山AI C端</strong>：推荐PV↑45%，对外合作日活1.4w<br><br>
+                    现在专注AI C端产品，相信在有限资源下找到最优解，是产品经理的核心能力。
+                </p>
+            </div>
+            <div class="about-right">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-period">2025.5 - 至今</div>
+                        <div class="timeline-company">金山办公 · WPS AI（灵犀）</div>
+                        <div class="timeline-title">AI产品经理</div>
+                        <div class="timeline-desc">推荐策略PV↑45%、UV↑25% | 对外合作日活1.4w | 侧边栏联动方案成为26年核心方向</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-period">2023.12 - 2025.5</div>
+                        <div class="timeline-company">金山办公 · 云和协作事业部</div>
+                        <div class="timeline-title">数字资产管理产品经理</div>
+                        <div class="timeline-desc">从0到1落地WPS 365数据安全模块：明暗水印、截录屏管控、密级标签、敏感词库、DLP | 通威、新东方标杆客户</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-period">2022.8 - 2023.12</div>
+                        <div class="timeline-company">金山办公 · SaaS事业部</div>
+                        <div class="timeline-title">企业账号通讯录产品经理</div>
+                        <div class="timeline-desc">WPS 365商业版、新邀请流程、AD域同步、SAML认证 | 解决小微→大客推广落地卡点</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-period">2021.8 - 2022.8</div>
+                        <div class="timeline-company">金山办公 · 云平台事业部</div>
+                        <div class="timeline-title">账号产品经理</div>
+                        <div class="timeline-desc">WPS账号体系改造：个人/企业账号隔离 | 输出26个产品方案 | 协调全产品线 | 6个月完成</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-period">2019.7 - 2021.7</div>
+                        <div class="timeline-company">中国电信 · 天翼数字生活</div>
+                        <div class="timeline-title">产品经理</div>
+                        <div class="timeline-desc">189邮箱：从0搭建用户标签系统 | 转化率↑40%，客诉↓40% | 数据平台搭建</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 洞察 -->
+    <section class="insights" id="insights">
+        <div class="insights-content">
+            <div class="section-header">
+                <div class="section-label">Thoughts</div>
+                <h2 class="section-title">产品方法论</h2>
+                <p class="section-desc">来自一线实践的思考</p>
+            </div>
+
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-tag">AI产品</div>
+                    <div class="insight-title">AI产品经理的新能力模型</div>
+                    <div class="insight-desc">
+                        AI产品用模型+提示词+上下文工程替代部分业务代码，目前阶段用稳定性换取效率和服务广度。<br><br>
+                        AI产品经理必须具备实现完整链路的能力——不能只提需求、只画原型，也要能写提示词，调上下文。
+                    </div>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-tag">LUI设计</div>
+                    <div class="insight-title">从工具到助手的跨越</div>
+                    <div class="insight-desc">
+                        AI助手的前提是记忆，记忆的前提是AI是一个整体。<br><br>
+                        用户在WPS任意位置使用AI能力时，都能沉淀和使用记忆。因此单个组件的LUI功能应该数据互通。
+                        这个思路已与组件团队达成共识，成为26年核心方向。
+                    </div>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-tag">用户分层</div>
+                    <div class="insight-title">普通用户 vs 深度用户</div>
+                    <div class="insight-desc">
+                        <strong>普通用户</strong>：需求少、非连续 → AI好用的关键是触发简单，用完即走、轻量快<br><br>
+                        <strong>深度用户</strong>：需求多、连续 → AI好用的关键是效果和连贯性，适合固定入口、常驻某区域、贯穿整个任务
+                    </div>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-tag">产品思维</div>
+                    <div class="insight-title">AI放大能力圈，但支点不变</div>
+                    <div class="insight-desc">
+                        AI工具让PM能自己做demo、验证效果、甚至发小产品。<br><br>
+                        但决定产出的支点（需求洞察、系统设计）始终没变。具备支点的PM能用AI这个杠杆撬动更大产出。
+                        对AI工具的熟练使用和模型理解，是延长力臂的有效方式。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目 -->
+    <section class="projects" id="projects">
+        <div class="section-header">
+            <div class="section-label">Projects</div>
+            <h2 class="section-title">代表项目</h2>
+            <p class="section-desc">每个项目都是深度思考后的落地成果</p>
+        </div>
+
+        <!-- 项目1：LUI技能推荐 -->
+        <div class="project-card" data-project="lui">
+            <div class="project-header">
+                <div class="project-title">LUI技能推荐策略（文字侧边栏推荐问）</div>
+                <div class="project-stage">C端 · AI</div>
+            </div>
+            <div class="project-role">独立负责：用户研究 → 策略设计 → 提示词撰写 → 上线</div>
+            <p class="project-desc">
+                针对用户"不知道AI能做什么"和"不知道怎么用"的痛点，构建技能推荐Agent。
+                通过识别用户文档类型、历史query、当前任务阶段，在LUI输入框智能推荐切合用户当下的技能和提示词。
+                从高频用户画像出发，优先覆盖创作传媒(小说)、工程建设(项目材料)、学生(论文)三类核心用户。
+            </p>
+            <div class="project-thoughts">
+                <div class="project-thoughts-title">核心思考</div>
+                <p>
+                    竞品分析发现：豆包引导是"获取更多信息"(被动响应)，GPT是"完成用户任务"(主动服务)。<br><br>
+                    我们选择学习GPT——核心思路是"教育用户"而非"猜测用户"。
+                    不追求精准命中用户想法，而是通过上下文预测用户目的，让用户知道AI能为他做什么。
+                </p>
+            </div>
+            <div class="project-metrics">
+                <div class="metric">
+                    <span class="metric-value">+45%</span>
+                    <span class="metric-label">推荐PV点击率</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">+25%</span>
+                    <span class="metric-label">推荐UV点击率</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">文字组件</span>
+                    <span class="metric-label">提升最显著</span>
+                </div>
+            </div>
+            <div class="project-tags">
+                <span class="tag">用户研究</span>
+                <span class="tag">竞品分析</span>
+                <span class="tag">提示词工程</span>
+                <span class="tag">数据驱动</span>
+            </div>
+        </div>
+
+        <!-- 项目2：WPS账号体系改造 -->
+        <div class="project-card" data-project="account">
+            <div class="project-header">
+                <div class="project-title">WPS账号体系改造</div>
+                <div class="project-stage">中台</div>
+            </div>
+            <div class="project-role">主导规划：顶层设计 → 26个方案 → 协调全产品线 → 按时上线</div>
+            <p class="project-desc">
+                2022年公司战略转向B端，需要将原本个人、企业共用账号拆分为隔离模式。
+                变更底层机制，所有账号基础功能重构，改造范围涉及公司全产品线(WPS Office所有客户端)。
+                我从中台视角出发，完整梳理功能改造范围，制定横跨半年的改造计划。
+            </p>
+            <div class="project-thoughts">
+                <div class="project-thoughts-title">核心思考</div>
+                <p>
+                    中台产品的核心挑战：在支撑业务的同时保持架构稳定。<br><br>
+                    关键动作：<br>
+                    1) 顶层设计优先，完整梳理改造范围<br>
+                    2) 26个产品方案覆盖所有改造点<br>
+                    3) 输出对接文档 + 定期培训，保障全业务线接入
+                </p>
+            </div>
+            <div class="project-metrics">
+                <div class="metric">
+                    <span class="metric-value">26</span>
+                    <span class="metric-label">产品方案</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">6个月</span>
+                    <span class="metric-label">改造周期</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">全产品线</span>
+                    <span class="metric-label">覆盖范围</span>
+                </div>
+            </div>
+            <div class="project-tags">
+                <span class="tag">系统设计</span>
+                <span class="tag">项目管理</span>
+                <span class="tag">跨部门协调</span>
+            </div>
+        </div>
+
+        <!-- 项目3：WPS 365企业数据安全模块 -->
+        <div class="project-card" data-project="dlp">
+            <div class="project-header">
+                <div class="project-title">WPS 365企业数据安全模块</div>
+                <div class="project-stage">B端</div>
+            </div>
+            <div class="project-role">从0到1：竞品调研 → 客户拜访 → 产品规划 → 落地支持</div>
+            <p class="project-desc">
+                接手时数据安全模块是空白。通过深入竞品分析(微软/飞书/谷歌)和客户拜访(通威/新东方等)，
+                明确客户真实需求不是完整的DLP，而是"文档分级打标→按级别权限管控"的轻量方案。
+                一年内WPS 365全家桶全线落地：明暗水印、截录屏管控、密级标签、敏感词库、DLP等核心能力。
+            </p>
+            <div class="project-thoughts">
+                <div class="project-thoughts-title">核心思考</div>
+                <p>
+                    B端产品常见坑：客户说的不一定是真正的需求。<br><br>
+                    通威案例：客户要DLP，实际需要的是文档分级打标+按级别管控。<br><br>
+                    竞品分析结论：微软DLP太重、飞书侧重审批流、谷歌侧重预防。
+                    我们选择聚焦核心场景，做轻量级密级标签+DLP，实现对飞企钉的赶超。
+                </p>
+            </div>
+            <div class="project-metrics">
+                <div class="metric">
+                    <span class="metric-value">通威、东方</span>
+                    <span class="metric-label">标杆客户</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">6+</span>
+                    <span class="metric-label">核心能力</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">1年</span>
+                    <span class="metric-label">从0到1落地</span>
+                </div>
+            </div>
+            <div class="project-tags">
+                <span class="tag">竞品分析</span>
+                <span class="tag">客户调研</span>
+                <span class="tag">产品规划</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="contact">
+        <div class="footer-email">
+            <a href="mailto:example@email.com">example@email.com</a>
+        </div>
+        <p>电话：13800138000</p>
+        <p style="margin-top: 16px;">© 2025 张小明. 7年产品经验，深度思考，务实落地。</p>
+    </footer>
+
+    <!-- 右侧滑出面板 -->
+    <div class="slide-panel-overlay" id="panelOverlay"></div>
+    <div class="slide-panel" id="slidePanel">
+        <div class="slide-panel-header">
+            <div></div>
+        </div>
+        <div class="slide-panel-content" id="panelContent">
+            <!-- 内容动态填充 -->
+        </div>
+    </div>
+
+    <script>
+        // 项目详情数据
+        const projectDetails = {
+            lui: {
+                title: 'LUI技能推荐策略',
+                subtitle: '文字侧边栏推荐问',
+                tags: ['C端', 'AI', '推荐系统'],
+                role: '独立负责：用户研究 → 策略设计 → 提示词撰写 → 上线',
+                overview: '针对用户"不知道AI能做什么"和"不知道怎么用"的痛点，构建技能推荐Agent。通过识别用户文档类型、历史query、当前任务阶段，在LUI输入框智能推荐切合用户当下的技能和提示词。',
+                problem: {
+                    title: '用户痛点',
+                    items: [
+                        '用户不知道AI能做什么：WPS AI功能丰富但用户无感知',
+                        '用户不知道怎么用：有需求但不会写提示词',
+                        '提示词门槛高：专业提示词距离普通用户太远'
+                    ]
+                },
+                targetUsers: {
+                    title: '目标用户分析',
+                    items: [
+                        '创作传媒人员(小说)：写小说、剧本、口播文案 → 润色(网文风格)、分段、检查(标点/错别字/语病)、改写、扩写、续写',
+                        '工程建设人员(项目材料)：写技术方案、项目材料 → 检查(标准/投标要求)、润色、生成(主题/文件生成)、改写、续写、扩写',
+                        '学生(论文)：写论文、阅读论文 → 生成(标题/摘要/正文/答辩稿)、润色(学术风)、改写、翻译、检查(格式/语法)'
+                    ]
+                },
+                analysis: {
+                    title: '竞品分析',
+                    items: [
+                        '豆包/元宝：引导是"获取更多信息"，是被动响应模式，意图让用户追问更多问题',
+                        'GPT：引导是"完成用户任务"，是主动服务模式，帮助用户完成当前任务',
+                        '结论：学习GPT——核心思路是"教育用户"而非"猜测用户"。不追求精准命中，而是让用户知道AI能为他做什么'
+                    ]
+                },
+                solution: {
+                    title: '方案框架',
+                    items: [
+                        '用户理解层：识别文档类型(小说/论文/项目材料)、历史query、当前任务阶段',
+                        '推荐引擎层：基于用户理解，匹配技能(润色/扩写/检查等)和提示词',
+                        '展示层：在LUI输入框智能展示推荐内容，分"直发"和"编辑"两种形态'
+                    ]
+                },
+                metrics: {
+                    title: '核心成果',
+                    items: [
+                        { value: '+45%', label: '推荐PV点击率' },
+                        { value: '+25%', label: '推荐UV点击率' },
+                        { value: '文字组件', label: '提升最显著' }
+                    ]
+                },
+                images: [
+                    'images/lui-01.png',
+                    'images/lui-02.png'
+                ]
+            },
+            account: {
+                title: 'WPS账号体系改造',
+                subtitle: '个人/企业账号隔离',
+                tags: ['中台', '账号体系', '系统改造'],
+                role: '主导规划：顶层设计 → 26个方案 → 协调全产品线 → 按时上线',
+                overview: '2022年公司战略转向B端市场，需要将原本个人、企业共用账号拆分为隔离模式。变更底层机制，所有账号基础功能重构，改造范围涉及公司全产品线(WPS Office所有客户端)。',
+                problem: {
+                    title: '背景与挑战',
+                    items: [
+                        '原本个人、企业共用一个账号体系，无法满足B端市场对数据安全的需求',
+                        '变更账号底层机制，所有账号基础功能(登录/注册/绑定/切换等)都需要重构',
+                        '改造范围涉及公司全产品线(PC/Web/移动端)，协调难度极大'
+                    ]
+                },
+                analysis: {
+                    title: '核心思路',
+                    items: [
+                        '顶层设计优先：从账号中台视角完整梳理功能改造范围和依赖关系',
+                        '方案颗粒度：输出26个产品方案，覆盖所有改造点和边界情况',
+                        '落地保障：制定横跨半年的改造计划，通过输出对接文档、定期内部培训保障全业务线接入'
+                    ]
+                },
+                solution: {
+                    title: '方案要点',
+                    items: [
+                        '个人账号与企业账号完全隔离：数据、权限、会话分离',
+                        '多账号登录：同一鉴权方式(手机/微信)可一次登录多个账号，切换无需重复鉴权',
+                        '账号切换列表优化：展示当前登录方式下绑定的所有账号，支持快速切换',
+                        '两步验证适配：多账号场景下优化验证流程，相同验证方式的账号一次验证后互通'
+                    ]
+                },
+                metrics: {
+                    title: '核心成果',
+                    items: [
+                        { value: '26', label: '产品方案' },
+                        { value: '6个月', label: '改造周期' },
+                        { value: '全产品线', label: '覆盖范围' }
+                    ]
+                },
+                images: [
+                    'images/account-01.png',
+                    'images/account-02.png'
+                ]
+            },
+            dlp: {
+                title: 'WPS 365企业数据安全模块',
+                subtitle: '文档密级标签与DLP',
+                tags: ['B端', '企业安全', '数据保护'],
+                role: '从0到1：竞品调研 → 客户拜访 → 产品规划 → 落地支持',
+                overview: '接手时数据安全模块是空白。通过深入竞品分析(微软/飞书/谷歌)和客户拜访(通威/新东方等)，明确客户真实需求不是完整DLP，而是"文档分级打标→按级别权限管控"的轻量方案。',
+                problem: {
+                    title: '客户需求',
+                    items: [
+                        '通威集团：需要文档分级打标，对不同密级文档进行权限控制',
+                        '新东方等：需要水印、截录屏管控等基础安全能力',
+                        '现有方案痛点：微软DLP太重、飞书侧重审批流、谷歌侧重预防，复杂度都较高'
+                    ]
+                },
+                customerInsights: {
+                    title: '客户分层洞察',
+                    items: [
+                        '强需求客户(晶科/通威)：安全>效率，纯本地文件办公，有安全团队和预算投入',
+                        '中需求客户(通威)：效率与安全兼顾，主要使用本地文档但不排斥云文档',
+                        '轻需求客户(知乎/新东方)：效率>安全，云文档办公，基础管控即可满足'
+                    ]
+                },
+                analysis: {
+                    title: '竞品分析',
+                    items: [
+                        '微软：完整DLP，功能强大但部署复杂，适合大型企业',
+                        '飞书：侧重场景化，密级+审批流，中小企业适用',
+                        '谷歌：云原生，侧重预防，互联网公司适用',
+                        '我们的机会：聚焦核心场景，做轻量级密级标签+DLP，实现对飞企钉的赶超'
+                    ]
+                },
+                solution: {
+                    title: '落地能力',
+                    items: [
+                        '明水印/暗水印：文档外发时自动添加水印，追溯泄露来源',
+                        '截录屏管控：禁止或限制对敏感文档的截屏/录屏',
+                        '文件密级管控：文档分级打标，按密级控制分享/下载/转发权限',
+                        '企业敏感词库：自定义敏感词，敏感文档自动预警',
+                        'DLP核心能力：内容识别、策略配置、审计追溯'
+                    ]
+                },
+                metrics: {
+                    title: '核心成果',
+                    items: [
+                        { value: '通威、东方', label: '标杆客户' },
+                        { value: '6+', label: '核心能力' },
+                        { value: '1年', label: '从0到1落地' }
+                    ]
+                },
+                images: [
+                    'images/dlp-01.png',
+                    'images/dlp-02.png'
+                ]
+            }
+        };
+
+        // 渲染面板内容
+        function renderPanel(projectId) {
+            const data = projectDetails[projectId];
+            if (!data) return '';
+
+            const metricsHtml = data.metrics.items.map(m => `
+                <div>
+                    <div class="slide-panel-metric-value">${m.value}</div>
+                    <div class="slide-panel-metric-label">${m.label}</div>
+                </div>
+            `).join('');
+
+            const tagsHtml = data.tags.map(t => `<span class="tag">${t}</span>`).join('');
+
+            const imagesHtml = data.images ? data.images.map(img => `
+                <img src="${img}" alt="产品截图" class="slide-panel-image">
+            `).join('') : '';
+
+            const targetUsersHtml = data.targetUsers ? `
+                <div class="slide-panel-section">
+                    <div class="slide-panel-label">${data.targetUsers.title}</div>
+                    <ul class="slide-panel-list">
+                        ${data.targetUsers.items.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </div>
+            ` : '';
+
+            const customerInsightsHtml = data.customerInsights ? `
+                <div class="slide-panel-section">
+                    <div class="slide-panel-label">${data.customerInsights.title}</div>
+                    <ul class="slide-panel-list">
+                        ${data.customerInsights.items.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </div>
+            ` : '';
+
+            return `
+                <div class="slide-panel-section">
+                    <div class="slide-panel-label">Project</div>
+                    <h2 class="slide-panel-title">${data.title}</h2>
+                    <p class="slide-panel-subtitle">${data.subtitle}</p>
+                    <div class="project-tags">${tagsHtml}</div>
+                </div>
+
+                <div class="slide-panel-section">
+                    <div class="slide-panel-label">角色</div>
+                    <p class="slide-panel-text">${data.role}</p>
+                </div>
+
+                <div class="slide-panel-section">
+                    <div class="slide-panel-label">Overview</div>
+                    <p class="slide-panel-text">${data.overview}</p>
+                </div>
+
+                ${imagesHtml ? `
+                <div class="slide-panel-section">
+                    <div class="slide-panel-label">产品截图</div>
+                    ${imagesHtml}
+                </div>
+                ` : ''}
+
+                <div class="slide-panel-section">
+                    <div class="slide-panel-label">${data.problem.title}</div>
+                    <ul class="slide-panel-list">
+                        ${data.problem.items.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </div>
+
+                ${targetUsersHtml}
+                ${customerInsightsHtml}
+
+                <div class="slide-panel-section">
+                    <div class="slide-panel-label">${data.analysis.title}</div>
+                    <ul class="slide-panel-list">
+                        ${data.analysis.items.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div class="slide-panel-section">
+                    <div class="slide-panel-label">${data.solution.title}</div>
+                    <ul class="slide-panel-list">
+                        ${data.solution.items.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div class="slide-panel-section">
+                    <div class="slide-panel-label">${data.metrics.title}</div>
+                    <div class="slide-panel-metrics">
+                        ${metricsHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        // 面板控制
+        const panel = document.getElementById('slidePanel');
+        const overlay = document.getElementById('panelOverlay');
+        const panelContent = document.getElementById('panelContent');
+
+        function openPanel(projectId) {
+            panelContent.innerHTML = renderPanel(projectId);
+            panel.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePanel() {
+            panel.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // 绑定项目卡片点击事件
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const projectId = this.dataset.project;
+                openPanel(projectId);
+            });
+        });
+
+        // 绑定关闭事件
+        overlay.addEventListener('click', closePanel);
+
+        // ESC关闭
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closePanel();
+        });
+    </script>
+
+</body>
+</html>
