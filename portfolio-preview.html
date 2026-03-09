@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>唐靖东 - 产品经理作品集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', sans-serif;
+            background: #FFFFFF;
+            color: #0F172A;
+            line-height: 1.6;
+        }
+
+        /* 导航 */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: #FFFFFF;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0F172A;
+        }
+
+        .logo span {
+            color: #2563EB;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #64748B;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #2563EB;
+        }
+
+        /* Hero区域 */
+        .hero {
+            padding: 100px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #EFF6FF;
+            color: #2563EB;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 20px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: #0F172A;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #2563EB, #7C3AED);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-desc {
+            font-size: 20px;
+            color: #64748B;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: #2563EB;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: #1D4ED8;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: white;
+            color: #0F172A;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            border: 1px solid #E2E8F0;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: #2563EB;
+            color: #2563EB;
+        }
+
+        /* 项目展示 */
+        .projects {
+            padding: 80px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 48px;
+        }
+
+        .section-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2563EB;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            font-size: 17px;
+            color: #64748B;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .project-card {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            border-color: #2563EB;
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1);
+        }
+
+        .project-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #2563EB, #7C3AED);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .project-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 8px;
+        }
+
+        .project-card p {
+            font-size: 15px;
+            color: #64748B;
+            margin-bottom: 20px;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            padding: 4px 12px;
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #64748B;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 32px;
+            padding-top: 20px;
+            border-top: 1px solid #E2E8F0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2563EB;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #94A3B8;
+        }
+
+        /* 技能区域 */
+        .skills {
+            padding: 80px 60px;
+            background: #F8FAFC;
+        }
+
+        .skills-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid #E2E8F0;
+            text-align: center;
+        }
+
+        .skill-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0F172A;
+            margin-bottom: 8px;
+        }
+
+        .skill-item p {
+            font-size: 13px;
+            color: #64748B;
+        }
+
+        /* 页脚 */
+        footer {
+            padding: 60px;
+            text-align: center;
+            border-top: 1px solid #E2E8F0;
+        }
+
+        footer p {
+            color: #94A3B8;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 24px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-desc {
+                font-size: 17px;
+            }
+
+            .projects, .skills {
+                padding: 60px 24px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航 -->
+    <nav>
+        <div class="logo">TANG<span>.</span></div>
+        <div class="nav-links">
+            <a href="#about">关于</a>
+            <a href="#projects">项目</a>
+            <a href="#skills">技能</a>
+            <a href="#contact">联系</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">WPS 企业产品经理</div>
+        <h1>你好，我是 <span>唐靖东</span></h1>
+        <p class="hero-desc">5年+企业级产品经验，专注于文档安全、数据防泄露领域。擅长需求分析、产品规划与跨团队协作。</p>
+        <div class="hero-buttons">
+            <a href="#projects" class="btn-primary">
+                查看作品 →
+            </a>
+            <a href="#contact" class="btn-secondary">
+                联系我
+            </a>
+        </div>
+    </section>
+
+    <!-- 项目展示 -->
+    <section class="projects" id="projects">
+        <div class="section-header">
+            <div class="section-label">Projects</div>
+            <h2 class="section-title">代表作品</h2>
+            <p class="section-desc">精选过去几年在金山WPS主导的核心产品项目</p>
+        </div>
+
+        <div class="project-grid">
+            <!-- 项目1 -->
+            <div class="project-card">
+                <div class="project-icon">🔐</div>
+                <h3>云DLP数据防泄露</h3>
+                <p>企业级数据安全产品，解决文档全生命周期管控需求</p>
+                <div class="project-tags">
+                    <span class="tag">竞品分析</span>
+                    <span class="tag">产品规划</span>
+                    <span class="tag">B端</span>
+                </div>
+                <div class="project-stats">
+                    <div class="stat">
+                        <div class="stat-value">3家</div>
+                        <div class="stat-label">目标客户</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">v2.1</div>
+                        <div class="stat-label">规划版本</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 项目2 -->
+            <div class="project-card">
+                <div class="project-icon">📄</div>
+                <h3>WPS+ 365 商业版</h3>
+                <p>企业级办公套件产品，为企业提供一站式办公服务</p>
+                <div class="project-tags">
+                    <span class="tag">商业化</span>
+                    <span class="tag">用户体验</span>
+                    <span class="tag">SaaS</span>
+                </div>
+                <div class="project-stats">
+                    <div class="stat">
+                        <div class="stat-value">50万+</div>
+                        <div class="stat-label">企业用户</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">10+</div>
+                        <div class="stat-label">功能模块</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 项目3 -->
+            <div class="project-card">
+                <div class="project-icon">🔑</div>
+                <h3>多账号登录体系</h3>
+                <p>统一身份认证解决方案，支持多种企业账号体系</p>
+                <div class="project-tags">
+                    <span class="tag">系统设计</span>
+                    <span class="tag">企业微信</span>
+                    <span class="tag">SSO</span>
+                </div>
+                <div class="project-stats">
+                    <div class="stat">
+                        <div class="stat-value">5种</div>
+                        <div class="stat-label">登录方式</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">99.9%</div>
+                        <div class="stat-label">可用性</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 项目4 -->
+            <div class="project-card">
+                <div class="project-icon">🏷️</div>
+                <h3>文档密级标签</h3>
+                <p>智能文档分级分类系统，实现精细化权限管控</p>
+                <div class="project-tags">
+                    <span class="tag">权限管理</span>
+                    <span class="tag">水印</span>
+                    <span class="tag">自动打标</span>
+                </div>
+                <div class="project-stats">
+                    <div class="stat">
+                        <div class="stat-value">4级</div>
+                        <div class="stat-label">密级分类</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">覆盖场景</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能 -->
+    <section class="skills" id="skills">
+        <div class="skills-content">
+            <div class="section-header">
+                <div class="section-label">Skills</div>
+                <h2 class="section-title">专业技能</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h4>需求分析</h4>
+                    <p>用户调研、竞品分析、PRD撰写</p>
+                </div>
+                <div class="skill-item">
+                    <h4>产品设计</h4>
+                    <p>原型设计、交互体验、功能规划</p>
+                </div>
+                <div class="skill-item">
+                    <h4>项目管理</h4>
+                    <p>敏捷开发、跨部门协调、进度把控</p>
+                </div>
+                <div class="skill-item">
+                    <h4>数据分析</h4>
+                    <p>数据埋点、效果评估、增长策略</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="contact">
+        <p>tangj@wps.cn</p>
+        <p style="margin-top: 8px;">© 2025 唐靖东. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
