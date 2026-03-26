@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>张小明 | AI产品经理</title>
-    <meta name="description" content="5年+产品经理经验，从用户调研到产品落地，深度思考，务实落地">
+    <title>唐靖东 | AI产品经理</title>
+    <meta name="description" content="做过中台、B端、C端、AI，擅长复杂系统设计，能从0到1落地产品">
     <style>
         * {
             margin: 0;
@@ -212,7 +212,7 @@
             line-height: 1.8;
         }
 
-        /* 时间轴 - 新风格 */
+        /* 时间轴 */
         .timeline {
             position: relative;
             padding-left: 32px;
@@ -365,6 +365,7 @@
             padding: 32px;
             margin-bottom: 24px;
             transition: all 0.3s;
+            cursor: pointer;
         }
 
         .project-card:hover {
@@ -545,166 +546,6 @@
                 flex-direction: column;
                 gap: 16px;
             }
-
-            /* 滑出面板移动端 */
-            .slide-panel {
-                width: 100%;
-                right: -100%;
-            }
-        }
-
-        /* 右侧滑出面板 */
-        .slide-panel-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-            z-index: 200;
-        }
-
-        .slide-panel-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .slide-panel {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 80%;
-            max-width: 1100px;
-            height: 100vh;
-            background: white;
-            box-shadow: -8px 0 32px rgba(0, 0, 0, 0.15);
-            transform: translateX(100%);
-            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 201;
-            overflow-y: auto;
-        }
-
-        .slide-panel.active {
-            transform: translateX(0);
-        }
-
-        .slide-panel-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 28px;
-            position: sticky;
-            top: 0;
-            background: white;
-            z-index: 10;
-        }
-
-
-        .slide-panel-content {
-            padding: 28px;
-        }
-
-        .slide-panel-section {
-            margin-bottom: 32px;
-        }
-
-        .slide-panel-section:last-child {
-            margin-bottom: 0;
-        }
-
-        .slide-panel-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-
-        .slide-panel-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-
-        .slide-panel-subtitle {
-            font-size: 15px;
-            color: var(--text-secondary);
-            margin-bottom: 16px;
-        }
-
-        .slide-panel-text {
-            font-size: 14px;
-            color: var(--text);
-            line-height: 1.8;
-        }
-
-        .slide-panel-text p {
-            margin-bottom: 12px;
-        }
-
-        .slide-panel-text p:last-child {
-            margin-bottom: 0;
-        }
-
-        .slide-panel-image {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 16px;
-            border: 1px solid var(--border);
-        }
-
-        .slide-panel-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .slide-panel-list li {
-            position: relative;
-            padding-left: 16px;
-            margin-bottom: 10px;
-            font-size: 14px;
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        .slide-panel-list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 8px;
-            width: 6px;
-            height: 6px;
-            background: var(--primary);
-            border-radius: 50%;
-        }
-
-        .slide-panel-metrics {
-            display: flex;
-            gap: 32px;
-            padding: 20px;
-            background: var(--bg-secondary);
-            border-radius: 12px;
-        }
-
-        .slide-panel-metric-value {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .slide-panel-metric-label {
-            font-size: 13px;
-            color: var(--text-secondary);
-            margin-top: 4px;
-        }
-
-        .project-card {
-            cursor: pointer;
         }
     </style>
 </head>
@@ -723,19 +564,20 @@
 
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-badge">AI产品经理 | 5年+经验</div>
-        <h1>我是 <span>张小明</span></h1>
-        <p class="hero-subtitle">从中台到B端，再到C端AI，见过完整闭环</p>
+        <div class="hero-badge">AI产品经理 | 做过中台、B端、C端、AI</div>
+        <h1>我是 <span>唐靖东</span></h1>
+        <p class="hero-subtitle">擅长复杂系统设计，能从0到1落地产品</p>
         <div class="hero-tags">
-            <span class="hero-tag">需求洞察</span>
             <span class="hero-tag">系统设计</span>
-            <span class="hero-tag">数据驱动</span>
+            <span class="hero-tag">AI产品</span>
+            <span class="hero-tag">从0到1</span>
             <span class="hero-tag">跨部门协调</span>
         </div>
         <p class="hero-desc">
-            5年+产品经验，经历过完整的转型路径：电信C端运营 → 金山账号中台 → WPS 365 B端企业产品 → WPS AI C端产品。<br><br>
-            25年落地：AI对外合作日活1.4w、推荐策略PV提升45%、侧边栏联动方案成为26年核心方向。<br><br>
-            现在专注AI C端产品，相信AI是未来，擅长在有限资源下找到最优解。
+            做过中台、B端、C端、AI，见过完整闭环。<br><br>
+            WPS AI：负责文字组件AI助手和灵犀智能助理，产品覆盖亿级用户。<br>
+            WPS 365 B端：数据安全模块成为销售核心卖点，支撑通威、新东方等标杆客户。<br>
+            账号中台：独自完成全产品线账号隔离改造，26个方案，半年完成。
         </p>
         <div class="hero-buttons">
             <a href="#projects" class="btn-primary">
@@ -752,47 +594,40 @@
         <div class="about-content">
             <div class="about-left">
                 <h2>About Me</h2>
-                <h3>见过完整闭环，专注AI C端</h3>
+                <h3>见过完整闭环，专注AI产品</h3>
                 <p>
-                    5年+产品经验，走过完整的转型路径：<br><br>
-                    <strong>电信</strong>：从0搭建用户标签系统，转化率↑40%，客诉↓40%<br>
-                    <strong>金山账号中台</strong>：主导26个方案，完成全产品线账号隔离改造<br>
-                    <strong>金山B端</strong>：从0到1落地数据安全模块，通威/新东方标杆客户<br>
-                    <strong>金山AI C端</strong>：推荐PV↑45%，对外合作日活1.4w<br><br>
-                    现在专注AI C端产品，相信在有限资源下找到最优解，是产品经理的核心能力。
+                    做过中台、B端、C端、AI，擅长复杂系统设计。<br><br>
+                    <strong>AI产品</strong>：WPS文字组件AI助手 + 灵犀智能助理，覆盖亿级用户<br>
+                    <strong>B端产品</strong>：数据安全模块，标杆客户背书<br>
+                    <strong>中台产品</strong>：账号隔离改造，独自完成26个方案<br><br>
+                    相信在有限资源下找到最优解，是产品经理的核心能力。
                 </p>
             </div>
             <div class="about-right">
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-period">2025.5 - 至今</div>
-                        <div class="timeline-company">金山办公 · WPS AI（灵犀）</div>
+                        <div class="timeline-period">2025.05 - 至今</div>
+                        <div class="timeline-company">金山办公 · WPS AI</div>
                         <div class="timeline-title">AI产品经理</div>
-                        <div class="timeline-desc">推荐策略PV↑45%、UV↑25% | 对外合作日活1.4w | 侧边栏联动方案成为26年核心方向</div>
+                        <div class="timeline-desc">WPS文字组件AI助手（覆盖千万用户）+ 灵犀智能助理（25年底月活百万）</div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-period">2023.12 - 2025.5</div>
-                        <div class="timeline-company">金山办公 · 云和协作事业部</div>
-                        <div class="timeline-title">数字资产管理产品经理</div>
-                        <div class="timeline-desc">从0到1落地WPS 365数据安全模块：明暗水印、截录屏管控、密级标签、敏感词库、DLP | 通威、新东方标杆客户</div>
+                        <div class="timeline-period">2022.08 - 2025.05</div>
+                        <div class="timeline-company">金山办公 · WPS 365</div>
+                        <div class="timeline-title">B端产品经理</div>
+                        <div class="timeline-desc">账号通讯录模块 + 数据安全模块（明暗水印、密级、DLP等）</div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-period">2022.8 - 2023.12</div>
-                        <div class="timeline-company">金山办公 · SaaS事业部</div>
-                        <div class="timeline-title">企业账号通讯录产品经理</div>
-                        <div class="timeline-desc">WPS 365商业版、新邀请流程、AD域同步、SAML认证 | 解决小微→大客推广落地卡点</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-period">2021.8 - 2022.8</div>
+                        <div class="timeline-period">2021.08 - 2022.08</div>
                         <div class="timeline-company">金山办公 · 云平台事业部</div>
                         <div class="timeline-title">账号产品经理</div>
-                        <div class="timeline-desc">WPS账号体系改造：个人/企业账号隔离 | 输出26个产品方案 | 协调全产品线 | 6个月完成</div>
+                        <div class="timeline-desc">多账号体系改造：个人/企业账号分割，独自完成26个方案</div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-period">2019.7 - 2021.7</div>
+                        <div class="timeline-period">2019.07 - 2021.07</div>
                         <div class="timeline-company">中国电信 · 天翼数字生活</div>
                         <div class="timeline-title">产品经理</div>
-                        <div class="timeline-desc">189邮箱：从0搭建用户标签系统 | 转化率↑40%，客诉↓40% | 数据平台搭建</div>
+                        <div class="timeline-desc">189邮箱：从零搭建用户标签系统，营销量减少40%</div>
                     </div>
                 </div>
             </div>
@@ -858,68 +693,82 @@
             <p class="section-desc">每个项目都是深度思考后的落地成果</p>
         </div>
 
-        <!-- 项目1：LUI技能推荐 -->
-        <div class="project-card" data-project="lui">
+        <!-- 项目1：WPS文字组件AI助手 -->
+        <div class="project-card">
             <div class="project-header">
-                <div class="project-title">LUI技能推荐策略（文字侧边栏推荐问）</div>
+                <div class="project-title">WPS文字组件AI助手</div>
                 <div class="project-stage">C端 · AI</div>
             </div>
-            <div class="project-role">独立负责：用户研究 → 策略设计 → 提示词撰写 → 上线</div>
+            <div class="project-role">负责：产品设计 → 工程链路 → 调优</div>
             <p class="project-desc">
-                针对用户"不知道AI能做什么"和"不知道怎么用"的痛点，构建技能推荐Agent。
-                通过识别用户文档类型、历史query、当前任务阶段，在LUI输入框智能推荐切合用户当下的技能和提示词。
-                从高频用户画像出发，优先覆盖创作传媒(小说)、工程建设(项目材料)、学生(论文)三类核心用户。
+                侧边栏为WPS产品AI化的主要阵地，覆盖千万用户。负责WPS PC客户端文字组件AI侧边栏中文档问答、编辑模块的产品设计、工程链路设计与调优。
+                从0到1设计并落地，26年将成为WPS AI核心方向。
+            </p>
+            <div class="project-thoughts">
+                <div class="project-thoughts-title">核心思考</div>
+                <p>
+                    AI助手的前提是记忆，记忆的前提是AI是一个整体。<br><br>
+                    用户在WPS任意位置使用AI能力时，都能沉淀和使用记忆。因此单个组件的LUI功能应该数据互通。
+                </p>
+            </div>
+            <div class="project-tags">
+                <span class="tag">AI产品</span>
+                <span class="tag">LUI</span>
+                <span class="tag">从0到1</span>
+            </div>
+        </div>
+
+        <!-- 项目2：灵犀智能助理 -->
+        <div class="project-card">
+            <div class="project-header">
+                <div class="project-title">灵犀智能助理</div>
+                <div class="project-stage">C端 · AI原生</div>
+            </div>
+            <div class="project-role">负责：文档生成 → 编辑模块 → Canvas</div>
+            <p class="project-desc">
+                灵犀是WPS的AI原生产品，为WPS内用户提供内容生成和文档编辑等能力。负责灵犀的文档生成、编辑模块的产品设计、工程链路设计与调优。
+                25年底月活百万。
             </p>
             <div class="project-thoughts">
                 <div class="project-thoughts-title">核心思考</div>
                 <p>
                     竞品分析发现：豆包引导是"获取更多信息"(被动响应)，GPT是"完成用户任务"(主动服务)。<br><br>
-                    我们选择学习GPT——核心思路是"教育用户"而非"猜测用户"。
-                    不追求精准命中用户想法，而是通过上下文预测用户目的，让用户知道AI能为他做什么。
+                    核心思路是"教育用户"而非"猜测用户"。不追求精准命中，而是让用户知道AI能为他做什么。
                 </p>
             </div>
             <div class="project-metrics">
                 <div class="metric">
-                    <span class="metric-value">+45%</span>
-                    <span class="metric-label">推荐PV点击率</span>
+                    <span class="metric-value">百万</span>
+                    <span class="metric-label">月活</span>
                 </div>
                 <div class="metric">
-                    <span class="metric-value">+25%</span>
-                    <span class="metric-label">推荐UV点击率</span>
-                </div>
-                <div class="metric">
-                    <span class="metric-value">文字组件</span>
-                    <span class="metric-label">提升最显著</span>
+                    <span class="metric-value">亿级</span>
+                    <span class="metric-label">用户覆盖</span>
                 </div>
             </div>
             <div class="project-tags">
-                <span class="tag">用户研究</span>
-                <span class="tag">竞品分析</span>
+                <span class="tag">AI原生</span>
+                <span class="tag">文档生成</span>
                 <span class="tag">提示词工程</span>
-                <span class="tag">数据驱动</span>
             </div>
         </div>
 
-        <!-- 项目2：WPS账号体系改造 -->
-        <div class="project-card" data-project="account">
+        <!-- 项目3：WPS账号体系改造 -->
+        <div class="project-card">
             <div class="project-header">
                 <div class="project-title">WPS账号体系改造</div>
                 <div class="project-stage">中台</div>
             </div>
-            <div class="project-role">主导规划：顶层设计 → 26个方案 → 协调全产品线 → 按时上线</div>
+            <div class="project-role">主导规划：顶层设计 → 26个方案 → 协调全产品线</div>
             <p class="project-desc">
-                2022年公司战略转向B端，需要将原本个人、企业共用账号拆分为隔离模式。
-                变更底层机制，所有账号基础功能重构，改造范围涉及公司全产品线(WPS Office所有客户端)。
-                我从中台视角出发，完整梳理功能改造范围，制定横跨半年的改造计划。
+                将WPS账号体系从单账号升级为多账号体系，完成个人账号与企业账号的分割，使用户可以拥有多个WPS账号，多账号间数据隔离，并在产品内可以切换使用。
+                独自完成全部26个方案的产品设计，对接金山全产品线。
             </p>
             <div class="project-thoughts">
                 <div class="project-thoughts-title">核心思考</div>
                 <p>
                     中台产品的核心挑战：在支撑业务的同时保持架构稳定。<br><br>
-                    关键动作：<br>
-                    1) 顶层设计优先，完整梳理改造范围<br>
-                    2) 26个产品方案覆盖所有改造点<br>
-                    3) 输出对接文档 + 定期培训，保障全业务线接入
+                    关键动作：顶层设计优先，完整梳理改造范围；26个产品方案覆盖所有改造点；输出对接文档+定期培训，保障全业务线接入。
                 </p>
             </div>
             <div class="project-metrics">
@@ -943,30 +792,28 @@
             </div>
         </div>
 
-        <!-- 项目3：WPS 365企业数据安全模块 -->
-        <div class="project-card" data-project="dlp">
+        <!-- 项目4：WPS 365企业数据安全模块 -->
+        <div class="project-card">
             <div class="project-header">
                 <div class="project-title">WPS 365企业数据安全模块</div>
                 <div class="project-stage">B端</div>
             </div>
             <div class="project-role">从0到1：竞品调研 → 客户拜访 → 产品规划 → 落地支持</div>
             <p class="project-desc">
-                接手时数据安全模块是空白。通过深入竞品分析(微软/飞书/谷歌)和客户拜访(通威/新东方等)，
-                明确客户真实需求不是完整的DLP，而是"文档分级打标→按级别权限管控"的轻量方案。
-                一年内WPS 365全家桶全线落地：明暗水印、截录屏管控、密级标签、敏感词库、DLP等核心能力。
+                全线落地明暗水印、截录屏管控、文件密级管控、企业敏感词库、DLP等核心能力，实现企业安全相关能力上对飞企钉的对标。
+                协助一线在通威集团、新东方等大客企业内落地安全管控能力，使数据安全模块成为WPS 365在销售阶段的核心卖点。
             </p>
             <div class="project-thoughts">
                 <div class="project-thoughts-title">核心思考</div>
                 <p>
                     B端产品常见坑：客户说的不一定是真正的需求。<br><br>
                     通威案例：客户要DLP，实际需要的是文档分级打标+按级别管控。<br><br>
-                    竞品分析结论：微软DLP太重、飞书侧重审批流、谷歌侧重预防。
-                    我们选择聚焦核心场景，做轻量级密级标签+DLP，实现对飞企钉的赶超。
+                    竞品分析结论：微软DLP太重、飞书侧重审批流、谷歌侧重预防。我们选择聚焦核心场景，做轻量级密级标签+DLP。
                 </p>
             </div>
             <div class="project-metrics">
                 <div class="metric">
-                    <span class="metric-value">通威、东方</span>
+                    <span class="metric-value">通威、新东方</span>
                     <span class="metric-label">标杆客户</span>
                 </div>
                 <div class="metric">
@@ -990,305 +837,11 @@
     <!-- 页脚 -->
     <footer id="contact">
         <div class="footer-email">
-            <a href="mailto:example@email.com">example@email.com</a>
+            <a href="mailto:tangjingdong0301@163.com">tangjingdong0301@163.com</a>
         </div>
-        <p>电话：13800138000</p>
-        <p style="margin-top: 16px;">© 2025 张小明. 7年产品经验，深度思考，务实落地。</p>
+        <p>电话：15975309915</p>
+        <p style="margin-top: 16px;">© 2025 唐靖东. 做过中台、B端、C端、AI，擅长复杂系统设计。</p>
     </footer>
-
-    <!-- 右侧滑出面板 -->
-    <div class="slide-panel-overlay" id="panelOverlay"></div>
-    <div class="slide-panel" id="slidePanel">
-        <div class="slide-panel-header">
-            <div></div>
-        </div>
-        <div class="slide-panel-content" id="panelContent">
-            <!-- 内容动态填充 -->
-        </div>
-    </div>
-
-    <script>
-        // 项目详情数据
-        const projectDetails = {
-            lui: {
-                title: 'LUI技能推荐策略',
-                subtitle: '文字侧边栏推荐问',
-                tags: ['C端', 'AI', '推荐系统'],
-                role: '独立负责：用户研究 → 策略设计 → 提示词撰写 → 上线',
-                overview: '针对用户"不知道AI能做什么"和"不知道怎么用"的痛点，构建技能推荐Agent。通过识别用户文档类型、历史query、当前任务阶段，在LUI输入框智能推荐切合用户当下的技能和提示词。',
-                problem: {
-                    title: '用户痛点',
-                    items: [
-                        '用户不知道AI能做什么：WPS AI功能丰富但用户无感知',
-                        '用户不知道怎么用：有需求但不会写提示词',
-                        '提示词门槛高：专业提示词距离普通用户太远'
-                    ]
-                },
-                targetUsers: {
-                    title: '目标用户分析',
-                    items: [
-                        '创作传媒人员(小说)：写小说、剧本、口播文案 → 润色(网文风格)、分段、检查(标点/错别字/语病)、改写、扩写、续写',
-                        '工程建设人员(项目材料)：写技术方案、项目材料 → 检查(标准/投标要求)、润色、生成(主题/文件生成)、改写、续写、扩写',
-                        '学生(论文)：写论文、阅读论文 → 生成(标题/摘要/正文/答辩稿)、润色(学术风)、改写、翻译、检查(格式/语法)'
-                    ]
-                },
-                analysis: {
-                    title: '竞品分析',
-                    items: [
-                        '豆包/元宝：引导是"获取更多信息"，是被动响应模式，意图让用户追问更多问题',
-                        'GPT：引导是"完成用户任务"，是主动服务模式，帮助用户完成当前任务',
-                        '结论：学习GPT——核心思路是"教育用户"而非"猜测用户"。不追求精准命中，而是让用户知道AI能为他做什么'
-                    ]
-                },
-                solution: {
-                    title: '方案框架',
-                    items: [
-                        '用户理解层：识别文档类型(小说/论文/项目材料)、历史query、当前任务阶段',
-                        '推荐引擎层：基于用户理解，匹配技能(润色/扩写/检查等)和提示词',
-                        '展示层：在LUI输入框智能展示推荐内容，分"直发"和"编辑"两种形态'
-                    ]
-                },
-                metrics: {
-                    title: '核心成果',
-                    items: [
-                        { value: '+45%', label: '推荐PV点击率' },
-                        { value: '+25%', label: '推荐UV点击率' },
-                        { value: '文字组件', label: '提升最显著' }
-                    ]
-                },
-                images: [
-                    '/portfolio/images/lui-01.png',
-                    '/portfolio/images/lui-02.png'
-                ]
-            },
-            account: {
-                title: 'WPS账号体系改造',
-                subtitle: '个人/企业账号隔离',
-                tags: ['中台', '账号体系', '系统改造'],
-                role: '主导规划：顶层设计 → 26个方案 → 协调全产品线 → 按时上线',
-                overview: '2022年公司战略转向B端市场，需要将原本个人、企业共用账号拆分为隔离模式。变更底层机制，所有账号基础功能重构，改造范围涉及公司全产品线(WPS Office所有客户端)。',
-                problem: {
-                    title: '背景与挑战',
-                    items: [
-                        '原本个人、企业共用一个账号体系，无法满足B端市场对数据安全的需求',
-                        '变更账号底层机制，所有账号基础功能(登录/注册/绑定/切换等)都需要重构',
-                        '改造范围涉及公司全产品线(PC/Web/移动端)，协调难度极大'
-                    ]
-                },
-                analysis: {
-                    title: '核心思路',
-                    items: [
-                        '顶层设计优先：从账号中台视角完整梳理功能改造范围和依赖关系',
-                        '方案颗粒度：输出26个产品方案，覆盖所有改造点和边界情况',
-                        '落地保障：制定横跨半年的改造计划，通过输出对接文档、定期内部培训保障全业务线接入'
-                    ]
-                },
-                solution: {
-                    title: '方案要点',
-                    items: [
-                        '个人账号与企业账号完全隔离：数据、权限、会话分离',
-                        '多账号登录：同一鉴权方式(手机/微信)可一次登录多个账号，切换无需重复鉴权',
-                        '账号切换列表优化：展示当前登录方式下绑定的所有账号，支持快速切换',
-                        '两步验证适配：多账号场景下优化验证流程，相同验证方式的账号一次验证后互通'
-                    ]
-                },
-                metrics: {
-                    title: '核心成果',
-                    items: [
-                        { value: '26', label: '产品方案' },
-                        { value: '6个月', label: '改造周期' },
-                        { value: '全产品线', label: '覆盖范围' }
-                    ]
-                },
-                images: [
-                    '/portfolio/images/account-01.png',
-                    '/portfolio/images/account-02.png'
-                ]
-            },
-            dlp: {
-                title: 'WPS 365企业数据安全模块',
-                subtitle: '文档密级标签与DLP',
-                tags: ['B端', '企业安全', '数据保护'],
-                role: '从0到1：竞品调研 → 客户拜访 → 产品规划 → 落地支持',
-                overview: '接手时数据安全模块是空白。通过深入竞品分析(微软/飞书/谷歌)和客户拜访(通威/新东方等)，明确客户真实需求不是完整DLP，而是"文档分级打标→按级别权限管控"的轻量方案。',
-                problem: {
-                    title: '客户需求',
-                    items: [
-                        '通威集团：需要文档分级打标，对不同密级文档进行权限控制',
-                        '新东方等：需要水印、截录屏管控等基础安全能力',
-                        '现有方案痛点：微软DLP太重、飞书侧重审批流、谷歌侧重预防，复杂度都较高'
-                    ]
-                },
-                customerInsights: {
-                    title: '客户分层洞察',
-                    items: [
-                        '强需求客户(晶科/通威)：安全>效率，纯本地文件办公，有安全团队和预算投入',
-                        '中需求客户(通威)：效率与安全兼顾，主要使用本地文档但不排斥云文档',
-                        '轻需求客户(知乎/新东方)：效率>安全，云文档办公，基础管控即可满足'
-                    ]
-                },
-                analysis: {
-                    title: '竞品分析',
-                    items: [
-                        '微软：完整DLP，功能强大但部署复杂，适合大型企业',
-                        '飞书：侧重场景化，密级+审批流，中小企业适用',
-                        '谷歌：云原生，侧重预防，互联网公司适用',
-                        '我们的机会：聚焦核心场景，做轻量级密级标签+DLP，实现对飞企钉的赶超'
-                    ]
-                },
-                solution: {
-                    title: '落地能力',
-                    items: [
-                        '明水印/暗水印：文档外发时自动添加水印，追溯泄露来源',
-                        '截录屏管控：禁止或限制对敏感文档的截屏/录屏',
-                        '文件密级管控：文档分级打标，按密级控制分享/下载/转发权限',
-                        '企业敏感词库：自定义敏感词，敏感文档自动预警',
-                        'DLP核心能力：内容识别、策略配置、审计追溯'
-                    ]
-                },
-                metrics: {
-                    title: '核心成果',
-                    items: [
-                        { value: '通威、东方', label: '标杆客户' },
-                        { value: '6+', label: '核心能力' },
-                        { value: '1年', label: '从0到1落地' }
-                    ]
-                },
-                images: [
-                    '/portfolio/images/dlp-01.png',
-                    '/portfolio/images/dlp-02.png'
-                ]
-            }
-        };
-
-        // 渲染面板内容
-        function renderPanel(projectId) {
-            const data = projectDetails[projectId];
-            if (!data) return '';
-
-            const metricsHtml = data.metrics.items.map(m => `
-                <div>
-                    <div class="slide-panel-metric-value">${m.value}</div>
-                    <div class="slide-panel-metric-label">${m.label}</div>
-                </div>
-            `).join('');
-
-            const tagsHtml = data.tags.map(t => `<span class="tag">${t}</span>`).join('');
-
-            const imagesHtml = data.images ? data.images.map(img => `
-                <img src="${img}" alt="产品截图" class="slide-panel-image">
-            `).join('') : '';
-
-            const targetUsersHtml = data.targetUsers ? `
-                <div class="slide-panel-section">
-                    <div class="slide-panel-label">${data.targetUsers.title}</div>
-                    <ul class="slide-panel-list">
-                        ${data.targetUsers.items.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                </div>
-            ` : '';
-
-            const customerInsightsHtml = data.customerInsights ? `
-                <div class="slide-panel-section">
-                    <div class="slide-panel-label">${data.customerInsights.title}</div>
-                    <ul class="slide-panel-list">
-                        ${data.customerInsights.items.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                </div>
-            ` : '';
-
-            return `
-                <div class="slide-panel-section">
-                    <div class="slide-panel-label">Project</div>
-                    <h2 class="slide-panel-title">${data.title}</h2>
-                    <p class="slide-panel-subtitle">${data.subtitle}</p>
-                    <div class="project-tags">${tagsHtml}</div>
-                </div>
-
-                <div class="slide-panel-section">
-                    <div class="slide-panel-label">角色</div>
-                    <p class="slide-panel-text">${data.role}</p>
-                </div>
-
-                <div class="slide-panel-section">
-                    <div class="slide-panel-label">Overview</div>
-                    <p class="slide-panel-text">${data.overview}</p>
-                </div>
-
-                ${imagesHtml ? `
-                <div class="slide-panel-section">
-                    <div class="slide-panel-label">产品截图</div>
-                    ${imagesHtml}
-                </div>
-                ` : ''}
-
-                <div class="slide-panel-section">
-                    <div class="slide-panel-label">${data.problem.title}</div>
-                    <ul class="slide-panel-list">
-                        ${data.problem.items.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                </div>
-
-                ${targetUsersHtml}
-                ${customerInsightsHtml}
-
-                <div class="slide-panel-section">
-                    <div class="slide-panel-label">${data.analysis.title}</div>
-                    <ul class="slide-panel-list">
-                        ${data.analysis.items.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                </div>
-
-                <div class="slide-panel-section">
-                    <div class="slide-panel-label">${data.solution.title}</div>
-                    <ul class="slide-panel-list">
-                        ${data.solution.items.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                </div>
-
-                <div class="slide-panel-section">
-                    <div class="slide-panel-label">${data.metrics.title}</div>
-                    <div class="slide-panel-metrics">
-                        ${metricsHtml}
-                    </div>
-                </div>
-            `;
-        }
-
-        // 面板控制
-        const panel = document.getElementById('slidePanel');
-        const overlay = document.getElementById('panelOverlay');
-        const panelContent = document.getElementById('panelContent');
-
-        function openPanel(projectId) {
-            panelContent.innerHTML = renderPanel(projectId);
-            panel.classList.add('active');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closePanel() {
-            panel.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // 绑定项目卡片点击事件
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const projectId = this.dataset.project;
-                openPanel(projectId);
-            });
-        });
-
-        // 绑定关闭事件
-        overlay.addEventListener('click', closePanel);
-
-        // ESC关闭
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closePanel();
-        });
-    </script>
 
 </body>
 </html>
