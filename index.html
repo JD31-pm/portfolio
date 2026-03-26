@@ -499,10 +499,13 @@
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 32px;
-            margin-bottom: 24px;
+            padding: 28px 32px;
+            margin-bottom: 20px;
             transition: all 0.3s;
             cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .project-card:hover {
@@ -511,19 +514,23 @@
             box-shadow: 0 12px 32px rgba(37, 99, 235, 0.08);
         }
 
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 16px;
+        .project-card-left {
+            flex: 1;
         }
 
-        .project-title {
-            font-size: 22px;
+        .project-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .project-card-title {
+            font-size: 20px;
             font-weight: 700;
         }
 
-        .project-stage {
+        .project-card-stage {
             padding: 4px 12px;
             background: var(--gradient);
             color: white;
@@ -532,25 +539,176 @@
             border-radius: 20px;
         }
 
-        .project-role {
-            font-size: 14px;
-            color: var(--text-secondary);
+        .project-card-star {
+            font-size: 15px;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .project-card-arrow {
+            color: var(--primary);
+            font-size: 18px;
+            margin-left: 24px;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover .project-card-arrow {
+            transform: translateX(4px);
+        }
+
+        /* 抽屉样式 */
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .drawer {
+            position: fixed;
+            top: 0;
+            right: -480px;
+            width: 480px;
+            height: 100vh;
+            background: var(--bg);
+            box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+            transition: right 0.3s ease;
+            z-index: 1001;
+            overflow-y: auto;
+            padding: 32px;
+        }
+
+        .drawer.active {
+            right: 0;
+        }
+
+        .drawer-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: var(--bg-secondary);
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .drawer-close:hover {
+            background: var(--border);
+        }
+
+        .drawer-header {
+            margin-bottom: 24px;
+        }
+
+        .drawer-stage {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--gradient);
+            color: white;
+            font-size: 12px;
+            font-weight: 500;
+            border-radius: 20px;
             margin-bottom: 12px;
         }
 
-        .project-desc {
-            font-size: 15px;
+        .drawer-title {
+            font-size: 26px;
+            font-weight: 700;
             color: var(--text);
-            margin-bottom: 20px;
+        }
+
+        .drawer-image {
+            width: 100%;
+            height: 200px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            border: 1px dashed var(--border);
+        }
+
+        .drawer-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .drawer-image-placeholder {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .drawer-star {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 12px 16px;
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+
+        .star-label {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .star-content {
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .drawer-thoughts {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .drawer-thoughts-title {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .drawer-thoughts-content {
+            font-size: 14px;
+            color: var(--text);
             line-height: 1.7;
         }
 
-        .project-thoughts {
-            padding: 16px;
-            background: white;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border-left: 3px solid var(--primary);
+        .drawer-thoughts-content p {
+            margin-bottom: 8px;
+        }
+
+        .drawer-thoughts-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .drawer {
+                width: 100%;
+                right: -100%;
+            }
         }
 
         .project-thoughts-title {
@@ -785,146 +943,11 @@
         <div class="section-header">
             <div class="section-label">Projects</div>
             <h2 class="section-title">代表项目</h2>
-            <p class="section-desc">每个项目都是深度思考后的落地成果</p>
+            <p class="section-desc">点击项目卡片查看详情</p>
         </div>
 
-        <!-- 项目1：WPS文字组件AI助手 -->
-        <div class="project-card">
-            <div class="project-header">
-                <div class="project-title">WPS文字组件AI助手</div>
-                <div class="project-stage">C端 · AI</div>
-            </div>
-            <div class="project-role">负责：产品设计 → 工程链路 → 调优</div>
-            <p class="project-desc">
-                侧边栏为WPS产品AI化的主要阵地，覆盖千万用户。负责WPS PC客户端文字组件AI侧边栏中文档问答、编辑模块的产品设计、工程链路设计与调优。
-                从0到1设计并落地，26年将成为WPS AI核心方向。
-            </p>
-            <div class="project-thoughts">
-                <div class="project-thoughts-title">核心思考</div>
-                <p>
-                    AI助手的前提是记忆，记忆的前提是AI是一个整体。<br><br>
-                    用户在WPS任意位置使用AI能力时，都能沉淀和使用记忆。因此单个组件的LUI功能应该数据互通。
-                </p>
-            </div>
-            <div class="project-tags">
-                <span class="tag">AI产品</span>
-                <span class="tag">LUI</span>
-                <span class="tag">从0到1</span>
-            </div>
-        </div>
-
-        <!-- 项目2：灵犀智能助理 -->
-        <div class="project-card">
-            <div class="project-header">
-                <div class="project-title">灵犀智能助理</div>
-                <div class="project-stage">C端 · AI原生</div>
-            </div>
-            <div class="project-role">负责：文档生成 → 编辑模块 → Canvas</div>
-            <p class="project-desc">
-                灵犀是WPS的AI原生产品，为WPS内用户提供内容生成和文档编辑等能力。负责灵犀的文档生成、编辑模块的产品设计、工程链路设计与调优。
-                25年底月活百万。
-            </p>
-            <div class="project-thoughts">
-                <div class="project-thoughts-title">核心思考</div>
-                <p>
-                    竞品分析发现：豆包引导是"获取更多信息"(被动响应)，GPT是"完成用户任务"(主动服务)。<br><br>
-                    核心思路是"教育用户"而非"猜测用户"。不追求精准命中，而是让用户知道AI能为他做什么。
-                </p>
-            </div>
-            <div class="project-metrics">
-                <div class="metric">
-                    <span class="metric-value">百万</span>
-                    <span class="metric-label">月活</span>
-                </div>
-                <div class="metric">
-                    <span class="metric-value">亿级</span>
-                    <span class="metric-label">用户覆盖</span>
-                </div>
-            </div>
-            <div class="project-tags">
-                <span class="tag">AI原生</span>
-                <span class="tag">文档生成</span>
-                <span class="tag">提示词工程</span>
-            </div>
-        </div>
-
-        <!-- 项目3：WPS账号体系改造 -->
-        <div class="project-card">
-            <div class="project-header">
-                <div class="project-title">WPS账号体系改造</div>
-                <div class="project-stage">中台</div>
-            </div>
-            <div class="project-role">主导规划：顶层设计 → 26个方案 → 协调全产品线</div>
-            <p class="project-desc">
-                将WPS账号体系从单账号升级为多账号体系，完成个人账号与企业账号的分割，使用户可以拥有多个WPS账号，多账号间数据隔离，并在产品内可以切换使用。
-                独自完成全部26个方案的产品设计，对接金山全产品线。
-            </p>
-            <div class="project-thoughts">
-                <div class="project-thoughts-title">核心思考</div>
-                <p>
-                    中台产品的核心挑战：在支撑业务的同时保持架构稳定。<br><br>
-                    关键动作：顶层设计优先，完整梳理改造范围；26个产品方案覆盖所有改造点；输出对接文档+定期培训，保障全业务线接入。
-                </p>
-            </div>
-            <div class="project-metrics">
-                <div class="metric">
-                    <span class="metric-value">26</span>
-                    <span class="metric-label">产品方案</span>
-                </div>
-                <div class="metric">
-                    <span class="metric-value">6个月</span>
-                    <span class="metric-label">改造周期</span>
-                </div>
-                <div class="metric">
-                    <span class="metric-value">全产品线</span>
-                    <span class="metric-label">覆盖范围</span>
-                </div>
-            </div>
-            <div class="project-tags">
-                <span class="tag">系统设计</span>
-                <span class="tag">项目管理</span>
-                <span class="tag">跨部门协调</span>
-            </div>
-        </div>
-
-        <!-- 项目4：WPS 365企业数据安全模块 -->
-        <div class="project-card">
-            <div class="project-header">
-                <div class="project-title">WPS 365企业数据安全模块</div>
-                <div class="project-stage">B端</div>
-            </div>
-            <div class="project-role">从0到1：竞品调研 → 客户拜访 → 产品规划 → 落地支持</div>
-            <p class="project-desc">
-                全线落地明暗水印、截录屏管控、文件密级管控、企业敏感词库、DLP等核心能力，实现企业安全相关能力上对飞企钉的对标。
-                协助一线在通威集团、新东方等大客企业内落地安全管控能力，使数据安全模块成为WPS 365在销售阶段的核心卖点。
-            </p>
-            <div class="project-thoughts">
-                <div class="project-thoughts-title">核心思考</div>
-                <p>
-                    B端产品常见坑：客户说的不一定是真正的需求。<br><br>
-                    通威案例：客户要DLP，实际需要的是文档分级打标+按级别管控。<br><br>
-                    竞品分析结论：微软DLP太重、飞书侧重审批流、谷歌侧重预防。我们选择聚焦核心场景，做轻量级密级标签+DLP。
-                </p>
-            </div>
-            <div class="project-metrics">
-                <div class="metric">
-                    <span class="metric-value">通威、新东方</span>
-                    <span class="metric-label">标杆客户</span>
-                </div>
-                <div class="metric">
-                    <span class="metric-value">6+</span>
-                    <span class="metric-label">核心能力</span>
-                </div>
-                <div class="metric">
-                    <span class="metric-value">1年</span>
-                    <span class="metric-label">从0到1落地</span>
-                </div>
-            </div>
-            <div class="project-tags">
-                <span class="tag">竞品分析</span>
-                <span class="tag">客户调研</span>
-                <span class="tag">产品规划</span>
-            </div>
+        <div class="projects-list">
+            <!-- 项目卡片将通过JS动态生成 -->
         </div>
 
     </section>
@@ -936,6 +959,41 @@
         <div class="modal-tag" id="modalTag"></div>
         <h3 class="modal-title" id="modalTitle"></h3>
         <div class="modal-content" id="modalContent"></div>
+    </div>
+
+    <!-- 项目详情抽屉 -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer" id="drawer">
+        <button class="drawer-close" id="drawerClose">×</button>
+        <div class="drawer-header">
+            <div class="drawer-stage" id="drawerStage"></div>
+            <h3 class="drawer-title" id="drawerTitle"></h3>
+        </div>
+        <div class="drawer-image" id="drawerImage">
+            <div class="drawer-image-placeholder">[图片待添加]</div>
+        </div>
+        <div class="drawer-star">
+            <div class="star-item">
+                <div class="star-label">背景</div>
+                <div class="star-content" id="drawerBackground"></div>
+            </div>
+            <div class="star-item">
+                <div class="star-label">任务</div>
+                <div class="star-content" id="drawerTask"></div>
+            </div>
+            <div class="star-item">
+                <div class="star-label">行动</div>
+                <div class="star-content" id="drawerAction"></div>
+            </div>
+            <div class="star-item">
+                <div class="star-label">结果</div>
+                <div class="star-content" id="drawerResult"></div>
+            </div>
+        </div>
+        <div class="drawer-thoughts">
+            <div class="drawer-thoughts-title">核心思路</div>
+            <div class="drawer-thoughts-content" id="drawerThoughts"></div>
+        </div>
     </div>
 
     <!-- 页脚 -->
@@ -996,6 +1054,59 @@
             }
         };
 
+        // 项目数据
+        const projectData = [
+            {
+                id: 'project-account',
+                title: 'WPS账号体系改造',
+                stage: '中台',
+                star: '主导WPS账号从单账号升级为多账号体系，支撑金山全产品线',
+                background: 'WPS原有账号体系为单账号架构，个人和企业用户共享一套账号系统，无法满足精细化运营和安全管理需求。',
+                task: '主导WPS账号体系从0到1的产品规划，设计多账号体系架构，输出完整产品方案。',
+                action: '完成26个产品方案设计，明确个人账号与企业账号的分割、数据隔离、账号切换等产品细节；制定与全产品线的对接标准，输出对接文档并培训各产品线团队。',
+                result: '支撑金山文档、协作、稻壳等十余个产品线的账号能力升级，用户可在产品内切换多个账号，数据隔离安全。',
+                thoughts: `<p>中台产品的核心挑战：<strong>在支撑业务的同时保持架构稳定</strong>。</p>
+                <p>关键动作：顶层设计优先，完整梳理改造范围；26个产品方案覆盖所有改造点；输出对接文档+定期培训，保障全业务线接入。</p>`
+            },
+            {
+                id: 'project-security',
+                title: 'WPS 365企业数据安全模块',
+                stage: 'B端',
+                star: '从0到1搭建数据安全模块，成为WPS 365销售核心卖点',
+                background: '企业客户对数据安全有强需求，但WPS 365缺乏完整的数据安全能力，对标飞书、钉钉竞争力不足。',
+                task: '从0到1规划数据安全模块，找到差异化切入点，完成产品设计并落地。',
+                action: '调研通威、新东方等大客需求，分析竞品（微软、飞书、钉钉）能力，明确轻量化切入方向；设计明暗水印、截录屏管控、文件密级管控、企业敏感词库、DLP等产品方案。',
+                result: '数据安全模块成为WPS 365在销售阶段的核心卖点，成功落地通威集团、新东方等标杆客户。',
+                thoughts: `<p>B端产品常见坑：<strong>客户说的不一定是真正的需求</strong>。</p>
+                <p>通威案例：客户要DLP，实际需要的是文档分级打标+按级别管控。</p>
+                <p>竞品分析结论：微软DLP太重、飞书侧重审批流、谷歌侧重预防。我们选择聚焦核心场景，做轻量级密级标签+DLP。</p>`
+            },
+            {
+                id: 'project-wps-ai',
+                title: 'WPS客户端AI化',
+                stage: 'C端',
+                star: '主导WPS PC客户端AI侧边栏产品设计，覆盖千万用户',
+                background: 'WPS需要将AI能力集成到现有产品中，提升用户体验和产品竞争力。',
+                task: '负责WPS PC客户端文字组件AI侧边栏的产品设计，包括文档问答、编辑模块。',
+                action: '设计AI侧边栏的产品形态和交互流程；定义文档问答、编辑等AI能力的产品规范；设计工程链路并参与调优。',
+                result: 'AI侧边栏成为WPS产品AI化的主要阵地，覆盖千万用户，26年成为WPS AI核心方向。',
+                thoughts: `<p>AI助手的前提是<strong>记忆</strong>，记忆的前提是AI是一个整体。</p>
+                <p>用户在WPS任意位置使用AI能力时，都能沉淀和使用记忆。因此单个组件的LUI功能应该数据互通。</p>`
+            },
+            {
+                id: 'project-lingxi',
+                title: '灵犀智能助理',
+                stage: 'C端 · AI原生',
+                star: '主导WPS AI原生产品设计，25年底月活百万',
+                background: '需要一个AI原生产品，为WPS内用户提供内容生成和文档编辑等AI能力。',
+                task: '负责灵犀的文档生成、编辑模块的产品设计，以及Canvas能力规划。',
+                action: '竞品分析（豆包、GPT）明确差异化为"教育用户"而非"猜测用户"；设计文档生成、编辑等产品方案；定义提示词框架和交互流程。',
+                result: '25年底月活百万，成为WPS核心AI产品之一。',
+                thoughts: `<p>竞品分析发现：豆包引导是"获取更多信息"（被动响应），GPT是"完成用户任务"（主动服务）。</p>
+                <p>核心思路是<strong>"教育用户"</strong>而非"猜测用户"。不追求精准命中，而是让用户知道AI能为他做什么。</p>`
+            }
+        ];
+
         const modal = document.getElementById('modal');
         const modalOverlay = document.getElementById('modalOverlay');
         const modalClose = document.getElementById('modalClose');
@@ -1044,6 +1155,73 @@
         modalClose.addEventListener('click', closeModal);
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeModal();
+        });
+
+        // 项目抽屉功能
+        const drawer = document.getElementById('drawer');
+        const drawerOverlay = document.getElementById('drawerOverlay');
+        const drawerClose = document.getElementById('drawerClose');
+        const drawerStage = document.getElementById('drawerStage');
+        const drawerTitle = document.getElementById('drawerTitle');
+        const drawerBackground = document.getElementById('drawerBackground');
+        const drawerTask = document.getElementById('drawerTask');
+        const drawerAction = document.getElementById('drawerAction');
+        const drawerResult = document.getElementById('drawerResult');
+        const drawerThoughts = document.getElementById('drawerThoughts');
+
+        function openDrawer(projectId) {
+            const project = projectData.find(p => p.id === projectId);
+            if (!project) return;
+
+            drawerStage.textContent = project.stage;
+            drawerTitle.textContent = project.title;
+            drawerBackground.textContent = project.background;
+            drawerTask.textContent = project.task;
+            drawerAction.textContent = project.action;
+            drawerResult.textContent = project.result;
+            drawerThoughts.innerHTML = project.thoughts;
+
+            drawer.classList.add('active');
+            drawerOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDrawer() {
+            drawer.classList.remove('active');
+            drawerOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // 渲染项目卡片
+        function renderProjectCards() {
+            const container = document.querySelector('.projects-list');
+            container.innerHTML = projectData.map(project => `
+                <div class="project-card" data-project="${project.id}">
+                    <div class="project-card-left">
+                        <div class="project-card-header">
+                            <span class="project-card-title">${project.title}</span>
+                            <span class="project-card-stage">${project.stage}</span>
+                        </div>
+                        <div class="project-card-star">${project.star}</div>
+                    </div>
+                    <div class="project-card-arrow">→</div>
+                </div>
+            `).join('');
+
+            // 绑定点击事件
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    openDrawer(this.dataset.project);
+                });
+            });
+        }
+
+        renderProjectCards();
+
+        drawerOverlay.addEventListener('click', closeDrawer);
+        drawerClose.addEventListener('click', closeDrawer);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeDrawer();
         });
     </script>
 
