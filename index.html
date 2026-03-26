@@ -1014,6 +1014,20 @@
             document.body.style.overflow = '';
         }
 
+        // Initialize card content from insightData
+        function initInsightCards() {
+            document.querySelectorAll('.insight-card[data-modal]').forEach(card => {
+                const id = card.dataset.modal;
+                const data = insightData[id];
+                if (!data) return;
+                card.querySelector('.insight-tag').textContent = data.tag;
+                card.querySelector('.insight-title').textContent = data.title;
+                card.querySelector('.insight-desc').innerHTML = data.content;
+            });
+        }
+
+        initInsightCards();
+
         document.querySelectorAll('.insight-card[data-modal]').forEach(card => {
             card.addEventListener('click', function() {
                 openModal(this.dataset.modal);
