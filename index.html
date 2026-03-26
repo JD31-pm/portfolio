@@ -300,11 +300,42 @@
             border-radius: 12px;
             padding: 28px;
             transition: all 0.2s;
+            cursor: pointer;
+            position: relative;
         }
 
         .insight-card:hover {
             border-color: var(--primary);
             transform: translateY(-2px);
+        }
+
+        .insight-card.truncated {
+            max-height: 260px;
+            overflow: hidden;
+        }
+
+        .insight-card.truncated::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(transparent, white);
+            pointer-events: none;
+        }
+
+        .insight-expand-btn {
+            display: none;
+            margin-top: 12px;
+            font-size: 13px;
+            color: var(--primary);
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .insight-card.truncated .insight-expand-btn {
+            display: inline-block;
         }
 
         .insight-tag {
@@ -337,6 +368,99 @@
         }
 
         .insight-long .insight-desc p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 浮窗 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 200;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            width: 90%;
+            max-width: 700px;
+            max-height: 85vh;
+            background: white;
+            border-radius: 16px;
+            padding: 36px;
+            overflow-y: auto;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 201;
+        }
+
+        .modal-overlay.active + .modal,
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: var(--bg-secondary);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: var(--border);
+        }
+
+        .modal-tag {
+            font-size: 12px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .modal-content {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.9;
+        }
+
+        .modal-content p {
+            margin-bottom: 16px;
+        }
+
+        .modal-content p:last-child {
             margin-bottom: 0;
         }
 
@@ -612,7 +736,7 @@
             </div>
 
             <div class="insights-grid">
-                <div class="insight-card insight-long">
+                <div class="insight-card insight-long truncated" data-modal="modal-ai-pm">
                     <div class="insight-tag">AI产品</div>
                     <div class="insight-title">AI产品经理的新能力模型</div>
                     <div class="insight-desc">
@@ -621,9 +745,10 @@
                         <p><strong>AI产品经理的新要求：</strong>在当下这个阶段，AI产品的部分工程链路更适合由产品经理实现。模型+提示词+上下文工程，想把AI产品做好，需要理解模型特点、提示词工程、上下文工程（架构设计）。在这三点上，研发和产品是站在同一起跑线的。但产品经理更加贴近用户和需求，就更加能设计出合理的提示词和上下文。<strong>所以AI产品经理，不能只提需求，只画原型。必须具备实现模型+提示词+上下文工程链路的能力。</strong></p>
                         <p><strong>AI放大了能力圈，但支点不变：</strong>AI工具涌现让产品经理的能力圈得到了扩展，能自己做demo，验证效果，甚至自己发布小产品。但真正决定产出的支点（需求洞察、系统设计）始终没变。具备支点的产品经理能够用AI这个杠杆撬动更大的产出。对AI工具的熟练使用、对模型的理解、业内新技术的跟进，是延长力臂的有效方式。</p>
                     </div>
+                    <div class="insight-expand-btn">展开阅读 ↓</div>
                 </div>
 
-                <div class="insight-card">
+                <div class="insight-card truncated" data-modal="modal-lui">
                     <div class="insight-tag">LUI设计</div>
                     <div class="insight-title">从工具到助手的跨越</div>
                     <div class="insight-desc">
@@ -631,25 +756,28 @@
                         用户在WPS任意位置使用AI能力时，都能沉淀和使用记忆。因此单个组件的LUI功能应该数据互通。
                         这个思路已与组件团队达成共识，成为26年核心方向。
                     </div>
+                    <div class="insight-expand-btn">展开阅读 ↓</div>
                 </div>
 
-                <div class="insight-card">
+                <div class="insight-card truncated" data-modal="modal-user">
                     <div class="insight-tag">用户分层</div>
                     <div class="insight-title">普通用户 vs 深度用户</div>
                     <div class="insight-desc">
                         <strong>普通用户</strong>：需求少、非连续 → AI好用的关键是触发简单，用完即走、轻量快<br><br>
                         <strong>深度用户</strong>：需求多、连续 → AI好用的关键是效果和连贯性，适合固定入口、常驻某区域、贯穿整个任务
                     </div>
+                    <div class="insight-expand-btn">展开阅读 ↓</div>
                 </div>
 
-                <div class="insight-card">
+                <div class="insight-card truncated" data-modal="modal-leverage">
                     <div class="insight-tag">产品思维</div>
                     <div class="insight-title">AI放大能力圈，但支点不变</div>
                     <div class="insight-desc">
-                        AI工具让PM能自己做demo、验证效果、甚至发小产品。<br><br>
+                        AI工具让PM能自己做demo，验证效果、甚至发小产品。<br><br>
                         但决定产出的支点（需求洞察、系统设计）始终没变。具备支点的PM能用AI这个杠杆撬动更大产出。
                         对AI工具的熟练使用和模型理解，是延长力臂的有效方式。
                     </div>
+                    <div class="insight-expand-btn">展开阅读 ↓</div>
                 </div>
             </div>
         </div>
@@ -804,6 +932,15 @@
 
     </section>
 
+    <!-- 浮窗 -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal" id="modal">
+        <button class="modal-close" id="modalClose">×</button>
+        <div class="modal-tag" id="modalTag"></div>
+        <h3 class="modal-title" id="modalTitle"></h3>
+        <div class="modal-content" id="modalContent"></div>
+    </div>
+
     <!-- 页脚 -->
     <footer id="contact">
         <div class="footer-email">
@@ -812,6 +949,75 @@
         <p>电话：15975309915</p>
         <p style="margin-top: 16px;">© 2025 唐靖东. 做过中台、B端、C端、AI，擅长复杂系统设计。</p>
     </footer>
+
+    <script>
+        const insightData = {
+            'modal-ai-pm': {
+                tag: 'AI产品',
+                title: 'AI产品经理的新能力模型',
+                content: `<p><strong>AI产品的本质变化：</strong>使用模型+提示词+上下文工程替代部分业务代码。在目前阶段，牺牲了产品稳定性，换取了开发效率和产品服务广度（长尾场景能被模型泛化能力兜底）。</p>
+                <p>产品经理了解模型、研究提示词、上下文，本质上和传统软件调整代码没有区别。其目的都是在有限的资源下——传统软件的开发资源有限，AI产品的模型上下文、注意力、遵循能力有限——让整个工程链路效率达到最高，给价值最大的场景提供最稳定的服务。</p>
+                <p><strong>AI产品经理的新要求：</strong>在当下这个阶段，AI产品的部分工程链路更适合由产品经理实现。模型+提示词+上下文工程，想把AI产品做好，需要理解模型特点、提示词工程、上下文工程（架构设计）。在这三点上，研发和产品是站在同一起跑线的。但产品经理更加贴近用户和需求，就更加能设计出合理的提示词和上下文。<strong>所以AI产品经理，不能只提需求，只画原型。必须具备实现模型+提示词+上下文工程链路的能力。</strong></p>
+                <p><strong>AI放大了能力圈，但支点不变：</strong>AI工具涌现让产品经理的能力圈得到了扩展，能自己做demo，验证效果，甚至自己发布小产品。但真正决定产出的支点（需求洞察、系统设计）始终没变。具备支点的产品经理能够用AI这个杠杆撬动更大的产出。对AI工具的熟练使用、对模型的理解、业内新技术的跟进，是延长力臂的有效方式。</p>`
+            },
+            'modal-lui': {
+                tag: 'LUI设计',
+                title: '从工具到助手的跨越',
+                content: `<p>AI助手的前提是记忆，记忆的前提是AI是一个整体。</p>
+                <p>用户在WPS任意位置使用AI能力时，都能沉淀和使用记忆。因此单个组件的LUI功能应该数据互通。</p>
+                <p>这个思路已与组件团队达成共识，成为26年核心方向。</p>`
+            },
+            'modal-user': {
+                tag: '用户分层',
+                title: '普通用户 vs 深度用户',
+                content: `<p><strong>普通用户</strong>：需求少、非连续 → AI好用的关键是触发简单，用完即走、轻量快</p>
+                <p><strong>深度用户</strong>：需求多、连续 → AI好用的关键是效果和连贯性，适合固定入口、常驻某区域、贯穿整个任务</p>`
+            },
+            'modal-leverage': {
+                tag: '产品思维',
+                title: 'AI放大能力圈，但支点不变',
+                content: `<p>AI工具让PM能自己做demo，验证效果、甚至发小产品。</p>
+                <p>但决定产出的支点（需求洞察、系统设计）始终没变。具备支点的PM能用AI这个杠杆撬动更大产出。</p>
+                <p>对AI工具的熟练使用和模型理解，是延长力臂的有效方式。</p>`
+            }
+        };
+
+        const modal = document.getElementById('modal');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalClose = document.getElementById('modalClose');
+        const modalTag = document.getElementById('modalTag');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalContent = document.getElementById('modalContent');
+
+        function openModal(id) {
+            const data = insightData[id];
+            if (!data) return;
+            modalTag.textContent = data.tag;
+            modalTitle.textContent = data.title;
+            modalContent.innerHTML = data.content;
+            modal.classList.add('active');
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.insight-card[data-modal]').forEach(card => {
+            card.addEventListener('click', function() {
+                openModal(this.dataset.modal);
+            });
+        });
+
+        modalOverlay.addEventListener('click', closeModal);
+        modalClose.addEventListener('click', closeModal);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
 
 </body>
 </html>
