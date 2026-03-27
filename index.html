@@ -701,33 +701,46 @@
         }
 
         .drawer-thoughts {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(30, 60, 114, 0.06) 100%);
-            border-radius: 12px;
-            padding: 20px 24px;
-            margin-top: 20px;
+            background: var(--bg);
             border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0;
+            margin-top: 24px;
+            overflow: hidden;
+        }
+
+        .drawer-thoughts-header {
+            background: var(--bg-secondary);
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .drawer-thoughts-icon {
-            font-size: 18px;
-            margin-bottom: 6px;
+            width: 16px;
+            height: 16px;
+            opacity: 0.6;
         }
 
         .drawer-thoughts-title {
-            font-weight: 700;
-            font-size: 14px;
-            color: var(--text);
-            margin-bottom: 12px;
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .drawer-thoughts-content {
+            padding: 16px 20px;
             font-size: 14px;
             color: var(--text);
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
         .drawer-thoughts-content p {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .drawer-thoughts-content p:last-child {
@@ -1023,8 +1036,12 @@
         </div>
 
         <div class="drawer-thoughts">
-            <div class="drawer-thoughts-icon">💡</div>
-            <div class="drawer-thoughts-title">核心思路</div>
+            <div class="drawer-thoughts-header">
+                <svg class="drawer-thoughts-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                </svg>
+                <div class="drawer-thoughts-title">核心思路</div>
+            </div>
             <div class="drawer-thoughts-content" id="drawerThoughts"></div>
         </div>
     </div>
