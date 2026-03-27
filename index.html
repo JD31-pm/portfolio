@@ -658,48 +658,64 @@
             font-size: 14px;
         }
 
-        .drawer-star-block {
-            margin-bottom: 16px;
+        .drawer-star-table {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
+            margin-bottom: 24px;
         }
 
-        .drawer-star-header {
-            background: var(--bg-secondary);
-            padding: 10px 16px;
-            font-weight: 600;
-            font-size: 12px;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .drawer-star-row {
+            display: grid;
+            grid-template-columns: 72px 1fr;
+            gap: 0;
+            min-height: 48px;
+        }
+
+        .drawer-star-row:not(:last-child) {
             border-bottom: 1px solid var(--border);
         }
 
-        .drawer-star-body {
-            padding: 14px 16px;
+        .drawer-star-key {
+            background: var(--bg-secondary);
+            padding: 12px 16px;
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            border-right: 1px solid var(--border);
+        }
+
+        .drawer-star-val {
+            padding: 12px 16px;
             font-size: 14px;
             color: var(--text);
             line-height: 1.6;
             background: var(--bg);
+            display: flex;
+            align-items: center;
         }
 
         .drawer-thoughts {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(30, 60, 114, 0.08) 100%);
-            border-radius: 16px;
-            padding: 24px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(30, 60, 114, 0.06) 100%);
+            border-radius: 12px;
+            padding: 20px 24px;
             margin-top: 20px;
             border: 1px solid var(--border);
         }
 
         .drawer-thoughts-icon {
-            font-size: 20px;
-            margin-bottom: 8px;
+            font-size: 18px;
+            margin-bottom: 6px;
         }
 
         .drawer-thoughts-title {
             font-weight: 700;
-            font-size: 15px;
+            font-size: 14px;
             color: var(--text);
             margin-bottom: 12px;
         }
@@ -987,24 +1003,23 @@
             <div class="drawer-image-placeholder">[图片待添加]</div>
         </div>
 
-        <div class="drawer-star-block">
-            <div class="drawer-star-header">背景</div>
-            <div class="drawer-star-body" id="drawerBackground"></div>
-        </div>
-
-        <div class="drawer-star-block">
-            <div class="drawer-star-header">任务</div>
-            <div class="drawer-star-body" id="drawerTask"></div>
-        </div>
-
-        <div class="drawer-star-block">
-            <div class="drawer-star-header">行动</div>
-            <div class="drawer-star-body" id="drawerAction"></div>
-        </div>
-
-        <div class="drawer-star-block">
-            <div class="drawer-star-header">结果</div>
-            <div class="drawer-star-body" id="drawerResult"></div>
+        <div class="drawer-star-table">
+            <div class="drawer-star-row">
+                <div class="drawer-star-key">背景</div>
+                <div class="drawer-star-val" id="drawerBackground"></div>
+            </div>
+            <div class="drawer-star-row">
+                <div class="drawer-star-key">任务</div>
+                <div class="drawer-star-val" id="drawerTask"></div>
+            </div>
+            <div class="drawer-star-row">
+                <div class="drawer-star-key">行动</div>
+                <div class="drawer-star-val" id="drawerAction"></div>
+            </div>
+            <div class="drawer-star-row">
+                <div class="drawer-star-key">结果</div>
+                <div class="drawer-star-val" id="drawerResult"></div>
+            </div>
         </div>
 
         <div class="drawer-thoughts">
