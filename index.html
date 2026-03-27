@@ -390,6 +390,97 @@
             visibility: visible;
         }
 
+        .image-viewer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 300;
+            cursor: pointer;
+        }
+
+        .image-viewer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .image-viewer {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 95vw;
+            max-height: 90vh;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 301;
+        }
+
+        .image-viewer.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .image-viewer-img {
+            max-width: 95vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .image-viewer-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .image-viewer-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .image-viewer-loading {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .image-viewer-loading.active {
+            display: flex;
+        }
+
+        .image-viewer-spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: image-viewer-spin 0.8s linear infinite;
+        }
+
+        @keyframes image-viewer-spin {
+            to { transform: rotate(360deg); }
+        }
+
         .modal {
             position: fixed;
             top: 50%;
@@ -1032,6 +1123,16 @@
         <div class="modal-content" id="modalContent"></div>
     </div>
 
+    <!-- 图片查看器 -->
+    <div class="image-viewer-overlay" id="imageViewerOverlay"></div>
+    <div class="image-viewer" id="imageViewer">
+        <button class="image-viewer-close" id="imageViewerClose">×</button>
+        <div class="image-viewer-loading" id="imageViewerLoading">
+            <div class="image-viewer-spinner"></div>
+        </div>
+        <img class="image-viewer-img" id="imageViewerImg" src="" alt="" style="display:none;">
+    </div>
+
     <!-- 项目详情抽屉 -->
     <div class="drawer-overlay" id="drawerOverlay"></div>
     <div class="drawer" id="drawer">
@@ -1271,7 +1372,15 @@
                 else if (count >= 3) colsClass = 'cols-4';
 
                 grid.className = 'drawer-images-grid ' + colsClass;
-                grid.innerHTML = project.images.map(img => `<img src="${img}" alt="${project.title}">`).join('');
+                grid.innerHTML = project.images.map(img => `<img src="${img}" alt="${project.title}" class="drawer-project-img" data-src="${img}">`).join('');
+
+                // 给图片添加点击事件
+                document.querySelectorAll('.drawer-project-img').forEach(img => {
+                    img.addEventListener('click', function() {
+                        openImageViewer(this.dataset.src);
+                    });
+                });
+
                 placeholder.style.display = 'none';
             } else {
                 grid.innerHTML = '';
@@ -1288,6 +1397,40 @@
             drawerOverlay.classList.remove('active');
             document.body.style.overflow = '';
         }
+
+        // 图片查看器
+        const imageViewer = document.getElementById('imageViewer');
+        const imageViewerOverlay = document.getElementById('imageViewerOverlay');
+        const imageViewerImg = document.getElementById('imageViewerImg');
+        const imageViewerClose = document.getElementById('imageViewerClose');
+        const imageViewerLoading = document.getElementById('imageViewerLoading');
+
+        function openImageViewer(src) {
+            imageViewerImg.style.display = 'none';
+            imageViewerLoading.classList.add('active');
+            imageViewer.classList.add('active');
+            imageViewerOverlay.classList.add('active');
+            imageViewerImg.src = src;
+        }
+
+        imageViewerImg.addEventListener('load', function() {
+            imageViewerLoading.classList.remove('active');
+            imageViewerImg.style.display = 'block';
+        });
+
+        imageViewerImg.addEventListener('error', function() {
+            imageViewerLoading.classList.remove('active');
+            imageViewerImg.style.display = 'block';
+        });
+
+        function closeImageViewer() {
+            imageViewer.classList.remove('active');
+            imageViewerOverlay.classList.remove('active');
+            imageViewerImg.src = '';
+        }
+
+        imageViewerOverlay.addEventListener('click', closeImageViewer);
+        imageViewerClose.addEventListener('click', closeImageViewer);
 
         // 渲染项目卡片
         function renderProjectCards() {
