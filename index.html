@@ -637,13 +637,13 @@
 
         .drawer-image {
             width: 100%;
-            height: 280px;
+            height: 240px;
             background: var(--bg-secondary);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
             border: 1px dashed var(--border);
         }
 
@@ -658,57 +658,62 @@
             font-size: 14px;
         }
 
-        .drawer-section {
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            padding: 20px 24px;
-            margin-bottom: 16px;
-            border-left: 3px solid var(--primary);
+        .drawer-star-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
         }
 
-        .drawer-section-label {
+        .drawer-star-row {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 16px;
+            align-items: baseline;
+        }
+
+        .drawer-star-label {
             font-weight: 600;
             font-size: 12px;
             color: var(--primary);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
+            letter-spacing: 0.5px;
         }
 
-        .drawer-section-content {
-            font-size: 15px;
+        .drawer-star-value {
+            font-size: 14px;
             color: var(--text);
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         .drawer-thoughts {
             background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(30, 60, 114, 0.08) 100%);
             border-radius: 16px;
-            padding: 28px;
-            margin-top: 24px;
+            padding: 24px;
+            margin-top: 20px;
             border: 1px solid var(--border);
         }
 
         .drawer-thoughts-icon {
-            font-size: 24px;
-            margin-bottom: 12px;
+            font-size: 20px;
+            margin-bottom: 8px;
         }
 
         .drawer-thoughts-title {
             font-weight: 700;
-            font-size: 16px;
+            font-size: 15px;
             color: var(--text);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .drawer-thoughts-content {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--text);
-            line-height: 1.8;
+            line-height: 1.7;
         }
 
         .drawer-thoughts-content p {
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .drawer-thoughts-content p:last-child {
@@ -984,24 +989,23 @@
             <div class="drawer-image-placeholder">[图片待添加]</div>
         </div>
 
-        <div class="drawer-section">
-            <div class="drawer-section-label">背景</div>
-            <div class="drawer-section-content" id="drawerBackground"></div>
-        </div>
-
-        <div class="drawer-section">
-            <div class="drawer-section-label">任务</div>
-            <div class="drawer-section-content" id="drawerTask"></div>
-        </div>
-
-        <div class="drawer-section">
-            <div class="drawer-section-label">行动</div>
-            <div class="drawer-section-content" id="drawerAction"></div>
-        </div>
-
-        <div class="drawer-section">
-            <div class="drawer-section-label">结果</div>
-            <div class="drawer-section-content" id="drawerResult"></div>
+        <div class="drawer-star-grid">
+            <div class="drawer-star-row">
+                <div class="drawer-star-label">背景</div>
+                <div class="drawer-star-value" id="drawerBackground"></div>
+            </div>
+            <div class="drawer-star-row">
+                <div class="drawer-star-label">任务</div>
+                <div class="drawer-star-value" id="drawerTask"></div>
+            </div>
+            <div class="drawer-star-row">
+                <div class="drawer-star-label">行动</div>
+                <div class="drawer-star-value" id="drawerAction"></div>
+            </div>
+            <div class="drawer-star-row">
+                <div class="drawer-star-label">结果</div>
+                <div class="drawer-star-value" id="drawerResult"></div>
+            </div>
         </div>
 
         <div class="drawer-thoughts">
