@@ -400,7 +400,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s;
-            z-index: 300;
+            z-index: 1100;
             cursor: pointer;
         }
 
@@ -419,7 +419,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s;
-            z-index: 301;
+            z-index: 1101;
         }
 
         .image-viewer.active {
@@ -454,6 +454,40 @@
 
         .image-viewer-close:hover {
             background: rgba(255, 255, 255, 0.3);
+        }
+
+        .image-viewer-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            z-index: 1102;
+        }
+
+        .image-viewer-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .image-viewer-nav.active {
+            display: flex;
+        }
+
+        .image-viewer-prev {
+            left: -60px;
+        }
+
+        .image-viewer-next {
+            right: -60px;
         }
 
         .image-viewer-loading {
@@ -769,6 +803,23 @@
             height: auto;
             border-radius: 6px;
             object-fit: contain;
+            cursor: zoom-in;
+            position: relative;
+        }
+
+        .drawer-images-grid.img-has-zoom::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 28px;
+            height: 28px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='M21 21l-4.35-4.35'/%3E%3Cpath d='M11 8v6M8 11h6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            pointer-events: none;
         }
 
         .drawer-image-placeholder {
@@ -1127,6 +1178,16 @@
     <div class="image-viewer-overlay" id="imageViewerOverlay"></div>
     <div class="image-viewer" id="imageViewer">
         <button class="image-viewer-close" id="imageViewerClose">×</button>
+        <button class="image-viewer-nav image-viewer-prev" id="imageViewerPrev">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </button>
+        <button class="image-viewer-nav image-viewer-next" id="imageViewerNext">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+            </svg>
+        </button>
         <div class="image-viewer-loading" id="imageViewerLoading">
             <div class="image-viewer-spinner"></div>
         </div>
@@ -1371,13 +1432,14 @@
                 if (count === 2) colsClass = 'cols-2';
                 else if (count >= 3) colsClass = 'cols-4';
 
-                grid.className = 'drawer-images-grid ' + colsClass;
-                grid.innerHTML = project.images.map(img => `<img src="${img}" alt="${project.title}" class="drawer-project-img" data-src="${img}">`).join('');
+                grid.className = 'drawer-images-grid ' + colsClass + ' img-has-zoom';
+                grid.innerHTML = project.images.map((img, idx) => `<img src="${img}" alt="${project.title}" class="drawer-project-img" data-src="${img}" data-index="${idx}">`).join('');
 
                 // 给图片添加点击事件
                 document.querySelectorAll('.drawer-project-img').forEach(img => {
                     img.addEventListener('click', function() {
-                        openImageViewer(this.dataset.src);
+                        const index = parseInt(this.dataset.index);
+                        openImageViewer(this.dataset.src, project.images, index);
                     });
                 });
 
@@ -1404,13 +1466,51 @@
         const imageViewerImg = document.getElementById('imageViewerImg');
         const imageViewerClose = document.getElementById('imageViewerClose');
         const imageViewerLoading = document.getElementById('imageViewerLoading');
+        const imageViewerPrev = document.getElementById('imageViewerPrev');
+        const imageViewerNext = document.getElementById('imageViewerNext');
 
-        function openImageViewer(src) {
+        let currentImages = [];
+        let currentImageIndex = 0;
+
+        function openImageViewer(src, images, index) {
+            currentImages = images;
+            currentImageIndex = index;
             imageViewerImg.style.display = 'none';
             imageViewerLoading.classList.add('active');
             imageViewer.classList.add('active');
             imageViewerOverlay.classList.add('active');
             imageViewerImg.src = src;
+            updateNavButtons();
+        }
+
+        function updateNavButtons() {
+            if (currentImages.length > 1) {
+                imageViewerPrev.classList.add('active');
+                imageViewerNext.classList.add('active');
+            } else {
+                imageViewerPrev.classList.remove('active');
+                imageViewerNext.classList.remove('active');
+            }
+        }
+
+        function showPrevImage() {
+            if (currentImageIndex > 0) {
+                currentImageIndex--;
+                loadCurrentImage();
+            }
+        }
+
+        function showNextImage() {
+            if (currentImageIndex < currentImages.length - 1) {
+                currentImageIndex++;
+                loadCurrentImage();
+            }
+        }
+
+        function loadCurrentImage() {
+            imageViewerImg.style.display = 'none';
+            imageViewerLoading.classList.add('active');
+            imageViewerImg.src = currentImages[currentImageIndex];
         }
 
         imageViewerImg.addEventListener('load', function() {
@@ -1431,6 +1531,15 @@
 
         imageViewerOverlay.addEventListener('click', closeImageViewer);
         imageViewerClose.addEventListener('click', closeImageViewer);
+        imageViewerPrev.addEventListener('click', showPrevImage);
+        imageViewerNext.addEventListener('click', showNextImage);
+
+        document.addEventListener('keydown', function(e) {
+            if (!imageViewer.classList.contains('active')) return;
+            if (e.key === 'ArrowLeft') showPrevImage();
+            if (e.key === 'ArrowRight') showNextImage();
+            if (e.key === 'Escape') closeImageViewer();
+        });
 
         // 渲染项目卡片
         function renderProjectCards() {
