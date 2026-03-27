@@ -1013,7 +1013,8 @@
             <h3 class="drawer-title" id="drawerTitle"></h3>
         </div>
         <div class="drawer-image" id="drawerImage">
-            <div class="drawer-image-placeholder">[图片待添加]</div>
+            <img id="drawerImageImg" src="" alt="" style="display: none;">
+            <div class="drawer-image-placeholder" id="drawerImagePlaceholder">[图片待添加]</div>
         </div>
 
         <div class="drawer-star-table">
@@ -1110,6 +1111,7 @@
                 id: 'project-lingxi',
                 title: '灵犀智能助理',
                 stage: 'C端 · AI原生',
+                images: ['assets/project-lingxi/lingxi-overview.png'],
                 star: '主导WPS AI原生产品设计，25年底月活百万',
                 background: '超级应用（豆包、元宝）和垂类AIGC工具（爱设计、橙篇）正在切走WPS的创作份额，gamma、天工等产品引导用户输出HTML等新格式内容，削弱传统office文件的份额。灵犀是WPS的AI原生创作类产品，用以对抗外部工具对用户的侵蚀。',
                 task: '灵犀定位为AI原生创作类产品，核心解决"让用户在WPS内完成创作"的问题。负责文档生成、编辑模块的产品设计，以及Canvas这一AI原生交互范式的规划。',
@@ -1226,6 +1228,19 @@
             drawerAction.textContent = project.action;
             drawerResult.textContent = project.result;
             drawerThoughts.innerHTML = project.thoughts;
+
+            // 显示项目图片
+            const img = document.getElementById('drawerImageImg');
+            const placeholder = document.getElementById('drawerImagePlaceholder');
+            if (project.images && project.images.length > 0) {
+                img.src = project.images[0];
+                img.alt = project.title;
+                img.style.display = 'block';
+                placeholder.style.display = 'none';
+            } else {
+                img.style.display = 'none';
+                placeholder.style.display = 'flex';
+            }
 
             drawer.classList.add('active');
             drawerOverlay.classList.add('active');
