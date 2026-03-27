@@ -807,10 +807,10 @@
             position: relative;
         }
 
-        .drawer-images-grid.img-has-zoom::after {
+        .drawer-images-grid img::after {
             content: '';
             position: absolute;
-            top: 8px;
+            bottom: 8px;
             right: 8px;
             width: 28px;
             height: 28px;
@@ -1432,7 +1432,7 @@
                 if (count === 2) colsClass = 'cols-2';
                 else if (count >= 3) colsClass = 'cols-4';
 
-                grid.className = 'drawer-images-grid ' + colsClass + ' img-has-zoom';
+                grid.className = 'drawer-images-grid ' + colsClass;
                 grid.innerHTML = project.images.map((img, idx) => `<img src="${img}" alt="${project.title}" class="drawer-project-img" data-src="${img}" data-index="${idx}">`).join('');
 
                 // 给图片添加点击事件
